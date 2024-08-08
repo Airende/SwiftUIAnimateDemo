@@ -42,7 +42,7 @@ struct MySKScene: View {
     }
     
 }
-
+fileprivate
 class CircleNode: SKShapeNode {
     var screenSize: CGSize!
     var circleSize: CGFloat = 40
