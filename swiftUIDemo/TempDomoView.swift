@@ -11,6 +11,7 @@ struct TempDomoView: View {
     @State var isOpen = false
     @State var isStart = false
     @State var timeSelectType: Int = 0
+    @State var toTimeDate: Date = Date()
     
     var body: some View {
         
@@ -29,16 +30,64 @@ struct TempDomoView: View {
                 
                 HStack {
                     VStack {
+                        
                         ForEach(0..<2) { index in
-                            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                                .foregroundColor(
-                                    timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
-                                )
-                                .frame(maxHeight: timeSelectType == index ? 100 : 50)
-                                .onTapGesture {
-                                    timeSelectType = index
+                            if index == 0 {
+                                ZStack {
+                                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                                        .foregroundColor(
+                                            timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
+                                        )
+                                        .frame(maxHeight: timeSelectType == index ? 100 : 50)
+                                        .onTapGesture {
+                                            timeSelectType = index
+                                        }
+                                        .animation(.easeInOut, value: timeSelectType)
+                                    ZStack {
+                                        DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
+                                        }
+                                        .frame(width: 0, alignment: .center)
+                                        .scaleEffect(.init(1.5))
+                                        .opacity(timeSelectType == index ? 1 : 0)
+                                        .animation(.easeInOut, value: timeSelectType)
+                                        
+                                        Text("使用专注时间点")
+                                            .font(.title2)
+                                            .opacity(timeSelectType != index ? 1 : 0)
+                                            .animation(.easeInOut, value: timeSelectType)
+
+                                    }
                                 }
-                                .animation(.easeInOut, value: timeSelectType)
+                                .padding(0)
+                               
+                                
+                            }else{
+                                ZStack {
+                                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                                        .foregroundColor(
+                                            timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
+                                        )
+                                        .frame(maxHeight: timeSelectType == index ? 100 : 50)
+                                        .onTapGesture {
+                                            timeSelectType = index
+                                        }
+                                        .animation(.easeInOut, value: timeSelectType)
+                                    ZStack {
+                                        DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
+                                        }
+                                        .frame(width: 0, alignment: .center)
+                                        .scaleEffect(.init(1.5))
+                                        .opacity(timeSelectType == index ? 1 : 0)
+                                        .animation(.easeInOut, value: timeSelectType)
+                                        
+                                        Text("使用时长专注")
+                                            .font(.title2)
+                                            .opacity(timeSelectType != index ? 1 : 0)
+                                            .animation(.easeInOut, value: timeSelectType)
+
+                                    }
+                                }
+                            }
                         }
                     }
                     .padding()
@@ -48,10 +97,7 @@ struct TempDomoView: View {
                 .animation(.easeInOut, value: isOpen)
 //                .frame(height: isOpen ? UIScreen.main.bounds.height/3.0 : 0)
                 .frame(height: UIScreen.main.bounds.height/4.0)
-
                 
-                
-                    
                             
                 Button(action: {
                     isStart.toggle()
@@ -76,15 +122,12 @@ struct TempDomoView: View {
             
             self.logoText()
             
-            TimelineView(.periodic(from: .now, by: 1.0 * 1)) { context in
-                VStack {
-//                    Text(String(format: "%.2f", context.date.timeIntervalSince1970))
-//                        .font(.custom("Helvetica Bold", fixedSize: 30))
-//                        .foregroundColor(Color.red)
-                    Text(String(describing: self.formatDateToShanghai(context.date)))
-                        .font(.largeTitle)
-                }
-            }
+//            TimelineView(.periodic(from: .now, by: 1.0 * 1)) { context in
+//                VStack {
+//                    Text(String(describing: self.formatDateToShanghai(context.date)))
+//                        .font(.largeTitle)
+//                }
+//            }
 
         }
     }
