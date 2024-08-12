@@ -21,12 +21,12 @@ struct UmbrellaView: View {
             ZStack {
                 if !isActive {
                     SpriteView(scene: getOutsideScene(proxy.size))
-                    SpriteView(scene: getInsideScene(proxy.size))
-                        .rotationEffect(Angle(degrees: 180))
-                        .mask(
-                            Image(systemName: "pawprint")
-                                .font(.system(size: min(proxy.size.width, proxy.size.height) / 1.5))
-                        )
+//                    SpriteView(scene: getInsideScene(proxy.size))
+//                        .rotationEffect(Angle(degrees: 180))
+//                        .mask(
+//                            Image(systemName: "pawprint")
+//                                .font(.system(size: min(proxy.size.width, proxy.size.height) / 1.5))
+//                        )
                 }
             }
         }
