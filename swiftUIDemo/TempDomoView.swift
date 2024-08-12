@@ -12,6 +12,7 @@ struct TempDomoView: View {
     @State var isStart = false
     @State var timeSelectType: Int = 0
     @State var toTimeDate: Date = Date()
+    @State var count: Int = 0
     
     var body: some View {
         
@@ -30,77 +31,79 @@ struct TempDomoView: View {
                 
                 HStack {
                     VStack {
-                        
                         ForEach(0..<2) { index in
-                            if index == 0 {
-                                ZStack {
-                                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                                        .foregroundColor(
-                                            timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
-                                        )
-                                        .frame(maxHeight: timeSelectType == index ? 100 : 50)
-                                        .onTapGesture {
-                                            timeSelectType = index
-                                        }
-                                        .animation(.easeInOut, value: timeSelectType)
+                            if isOpen {
+                                if index == 0 {
                                     ZStack {
-                                        DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
-                                        }
-                                        .frame(width: 0, alignment: .center)
-                                        .scaleEffect(.init(1.5))
-                                        .opacity(timeSelectType == index ? 1 : 0)
-                                        .animation(.easeInOut, value: timeSelectType)
-                                        
-                                        Text("使用专注时间点")
-                                            .font(.title2)
-                                            .opacity(timeSelectType != index ? 1 : 0)
+                                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                                            .foregroundColor(
+                                                timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
+                                            )
+                                            .frame(maxHeight: timeSelectType == index ? 100 : 50)
+                                            .onTapGesture {
+                                                timeSelectType = index
+                                            }
                                             .animation(.easeInOut, value: timeSelectType)
+                                        ZStack {
+                                            DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
+                                            }
+                                            .frame(width: 0, alignment: .center)
+                                            .scaleEffect(.init(1.5))
+                                            .opacity(timeSelectType == index ? 1 : 0)
+                                            .animation(.easeInOut, value: timeSelectType)
+                                            
+                                            Text("使用专注时间点")
+                                                .font(.title2)
+                                                .opacity(timeSelectType != index ? 1 : 0)
+                                                .animation(.easeInOut, value: timeSelectType)
 
+                                        }
+                                    }
+                                    .animation(.easeInOut, value: isOpen)
+                                    
+                                }else{
+                                    ZStack {
+                                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                                            .foregroundColor(
+                                                timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
+                                            )
+                                            .frame(maxHeight: timeSelectType == index ? 100 : 50)
+                                            .onTapGesture {
+                                                timeSelectType = index
+                                            }
+                                            .animation(.easeInOut, value: timeSelectType)
+                                        ZStack {
+                                            DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
+                                            }
+                                            .frame(width: 0, alignment: .center)
+                                            .scaleEffect(.init(1.5))
+                                            .opacity(timeSelectType == index ? 1 : 0)
+                                            .animation(.easeInOut, value: timeSelectType)
+                                            
+                                            Text("使用时长专注")
+                                                .font(.title2)
+                                                .opacity(timeSelectType != index ? 1 : 0)
+                                                .animation(.easeInOut, value: timeSelectType)
+                                        }
                                     }
                                 }
-                                .padding(0)
-                               
-                                
-                            }else{
-                                ZStack {
-                                    RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                                        .foregroundColor(
-                                            timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
-                                        )
-                                        .frame(maxHeight: timeSelectType == index ? 100 : 50)
-                                        .onTapGesture {
-                                            timeSelectType = index
-                                        }
-                                        .animation(.easeInOut, value: timeSelectType)
-                                    ZStack {
-                                        DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
-                                        }
-                                        .frame(width: 0, alignment: .center)
-                                        .scaleEffect(.init(1.5))
-                                        .opacity(timeSelectType == index ? 1 : 0)
-                                        .animation(.easeInOut, value: timeSelectType)
-                                        
-                                        Text("使用时长专注")
-                                            .font(.title2)
-                                            .opacity(timeSelectType != index ? 1 : 0)
-                                            .animation(.easeInOut, value: timeSelectType)
-
-                                    }
-                                }
+                            }else {
+                                EmptyView()
                             }
+                            
                         }
                     }
-                    .padding()
                 }
                 .frame(maxWidth: .infinity)
                 .background(Color.gray.opacity(0.0))
                 .animation(.easeInOut, value: isOpen)
-//                .frame(height: isOpen ? UIScreen.main.bounds.height/3.0 : 0)
-                .frame(height: UIScreen.main.bounds.height/4.0)
+                .frame(height: isOpen ? UIScreen.main.bounds.height/3.0 : 0)
+//                .frame(height: UIScreen.main.bounds.height/4.0)
                 
                             
                 Button(action: {
                     isStart.toggle()
+                    count = 0
                     isOpen = false
                 }, label: {
                     Text("开始")
