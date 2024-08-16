@@ -14,6 +14,8 @@
 		442C41352C57664200E2FDDA /* swiftUIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442C41342C57664200E2FDDA /* swiftUIDemoTests.swift */; };
 		442C413F2C57664200E2FDDA /* swiftUIDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442C413E2C57664200E2FDDA /* swiftUIDemoUITests.swift */; };
 		442C41412C57664200E2FDDA /* swiftUIDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442C41402C57664200E2FDDA /* swiftUIDemoUITestsLaunchTests.swift */; };
+		4432F3BD2C6F3A39006A03D4 /* MySettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3BC2C6F3A39006A03D4 /* MySettingPage.swift */; };
+		4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
 		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
 		44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FC22C60CCE500B6B926 /* Waves.swift */; };
@@ -57,6 +59,8 @@
 		442C413A2C57664200E2FDDA /* swiftUIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swiftUIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		442C413E2C57664200E2FDDA /* swiftUIDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftUIDemoUITests.swift; sourceTree = "<group>"; };
 		442C41402C57664200E2FDDA /* swiftUIDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftUIDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4432F3BC2C6F3A39006A03D4 /* MySettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingPage.swift; sourceTree = "<group>"; };
+		4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyVIPPage.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
 		44D15FC22C60CCE500B6B926 /* Waves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waves.swift; sourceTree = "<group>"; };
@@ -120,8 +124,8 @@
 		442C41222C57664000E2FDDA /* swiftUIDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4432F3BB2C6F3A01006A03D4 /* APPPage */,
 				442C41232C57664000E2FDDA /* swiftUIDemoApp.swift */,
-				449019082C69AA4800A01C92 /* TempDomoView.swift */,
 				449019042C64B63300A01C92 /* UmbrellaView.swift */,
 				44D15FD82C63482E00B6B926 /* FlowingColorView.swift */,
 				44D15FE72C6368AD00B6B926 /* OffsetInScrollView.swift */,
@@ -162,6 +166,16 @@
 				442C41402C57664200E2FDDA /* swiftUIDemoUITestsLaunchTests.swift */,
 			);
 			path = swiftUIDemoUITests;
+			sourceTree = "<group>";
+		};
+		4432F3BB2C6F3A01006A03D4 /* APPPage */ = {
+			isa = PBXGroup;
+			children = (
+				449019082C69AA4800A01C92 /* TempDomoView.swift */,
+				4432F3BC2C6F3A39006A03D4 /* MySettingPage.swift */,
+				4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */,
+			);
+			path = APPPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,8 +319,10 @@
 				449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */,
 				44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */,
 				44D15FCD2C620D2C00B6B926 /* CircleTypography.swift in Sources */,
+				4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */,
 				44D15FCB2C61C8C700B6B926 /* Drag3D.swift in Sources */,
 				442C41262C57664000E2FDDA /* ContentView.swift in Sources */,
+				4432F3BD2C6F3A39006A03D4 /* MySettingPage.swift in Sources */,
 				44D15FC52C60D66D00B6B926 /* Joystick.swift in Sources */,
 				449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */,
 				44D15FCF2C621BCD00B6B926 /* SKScene.swift in Sources */,
