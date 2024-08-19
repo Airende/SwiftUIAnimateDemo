@@ -52,10 +52,15 @@ struct AddCycleTimePage: View {
                     }
                     
                 }
+                
+                Section {
+                    Button("删除定时") {
+                        
+                    }
+                    .foregroundStyle(Color.red)
+                    .frame(maxWidth: .infinity)
+                }
             }
-            
-            
-            
         })
         .navigationTitle("定时")
     }

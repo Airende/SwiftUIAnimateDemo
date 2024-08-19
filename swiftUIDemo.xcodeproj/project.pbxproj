@@ -31,6 +31,7 @@
 		44D15FF12C64976900B6B926 /* ColorfulX in Frameworks */ = {isa = PBXBuildFile; productRef = 44D15FF02C64976900B6B926 /* ColorfulX */; };
 		44D1B9242C6A118300D1054D /* AnimateText in Frameworks */ = {isa = PBXBuildFile; productRef = 44D1B9232C6A118300D1054D /* AnimateText */; };
 		44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D1B9252C6A11DB00D1054D /* ZYAnimateText.swift */; };
+		E5D453572C737F0800CC0693 /* ModeLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D453562C737F0800CC0693 /* ModeLockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		44D15FD82C63482E00B6B926 /* FlowingColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowingColorView.swift; sourceTree = "<group>"; };
 		44D15FE72C6368AD00B6B926 /* OffsetInScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetInScrollView.swift; sourceTree = "<group>"; };
 		44D1B9252C6A11DB00D1054D /* ZYAnimateText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZYAnimateText.swift; sourceTree = "<group>"; };
+		E5D453562C737F0800CC0693 /* ModeLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */,
 				4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */,
 				4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */,
+				E5D453562C737F0800CC0693 /* ModeLockView.swift */,
 			);
 			path = APPPage;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */,
 				44D15FE82C6368AD00B6B926 /* OffsetInScrollView.swift in Sources */,
 				44D15FD92C63482E00B6B926 /* FlowingColorView.swift in Sources */,
+				E5D453572C737F0800CC0693 /* ModeLockView.swift in Sources */,
 				442C41242C57664000E2FDDA /* swiftUIDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
