@@ -16,6 +16,8 @@
 		442C41412C57664200E2FDDA /* swiftUIDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442C41402C57664200E2FDDA /* swiftUIDemoUITestsLaunchTests.swift */; };
 		4432F3BD2C6F3A39006A03D4 /* MySettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3BC2C6F3A39006A03D4 /* MySettingPage.swift */; };
 		4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */; };
+		4432F3C12C731C78006A03D4 /* ModeSettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */; };
+		4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
 		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
 		44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FC22C60CCE500B6B926 /* Waves.swift */; };
@@ -61,6 +63,8 @@
 		442C41402C57664200E2FDDA /* swiftUIDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftUIDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4432F3BC2C6F3A39006A03D4 /* MySettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingPage.swift; sourceTree = "<group>"; };
 		4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyVIPPage.swift; sourceTree = "<group>"; };
+		4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSettingPage.swift; sourceTree = "<group>"; };
+		4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCycleTimePage.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
 		44D15FC22C60CCE500B6B926 /* Waves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waves.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 				449019082C69AA4800A01C92 /* TempDomoView.swift */,
 				4432F3BC2C6F3A39006A03D4 /* MySettingPage.swift */,
 				4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */,
+				4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */,
+				4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */,
 			);
 			path = APPPage;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4432F3C12C731C78006A03D4 /* ModeSettingPage.swift in Sources */,
 				449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */,
 				44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */,
 				44D15FCD2C620D2C00B6B926 /* CircleTypography.swift in Sources */,
@@ -328,6 +335,7 @@
 				44D15FCF2C621BCD00B6B926 /* SKScene.swift in Sources */,
 				44D15FC92C61BC5300B6B926 /* TimerCircle.swift in Sources */,
 				44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */,
+				4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */,
 				44D15FE82C6368AD00B6B926 /* OffsetInScrollView.swift in Sources */,
 				44D15FD92C63482E00B6B926 /* FlowingColorView.swift in Sources */,
 				442C41242C57664000E2FDDA /* swiftUIDemoApp.swift in Sources */,
