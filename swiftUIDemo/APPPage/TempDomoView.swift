@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ColorfulX
 
 struct TempDomoView: View {
     @State var isOpen = false
@@ -23,12 +24,16 @@ struct TempDomoView: View {
                     Text("📚")
                         .font(.system(size: 150, weight: .regular))
                         .padding(0)
-                    Text("专注模式 >")
-                        .padding(0)
-                        .font(.system(size: 20, weight: .bold))
-                        .onTapGesture {
-                            isOpen.toggle()
-                        }
+                    HStack {
+                        Text("专注模式")
+                            .padding(0)
+                            .font(.system(size: 20, weight: .bold))
+                            .onTapGesture {
+                                isOpen.toggle()
+                            }
+                        Image(systemName: "chevron.forward")
+                    }
+                    .offset(x: 10)
                 })
                 
 //                HStack {
@@ -151,13 +156,12 @@ struct TempDomoView: View {
     func logoText()->some View{
         VStack {
             HStack {
-                FlowingColorView(clear: true)
+                FlowingColorView(clear: true, colors: ColorfulPreset.lavandula.colors)
                     .frame(width: 300, height: 100)
                     .mask {
                         HStack {
                             Text("竹叶专注")
-                                .font(.custom(UIFont.familyNames[39], size: 20))
-        //                        .font(.title2)
+                                .font(.system(size: 20))
                                 .fontWeight(.heavy)
                                 .padding(20)
                             Spacer()

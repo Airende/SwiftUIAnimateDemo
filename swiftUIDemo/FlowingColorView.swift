@@ -8,9 +8,7 @@
 import SwiftUI
 import ColorfulX
 
-struct FlowingColorView: View {
-    let items = (1...20).map { "Item \($0)" }
-    
+struct FlowingColorView: View {    
     var clear = false
     
     @State private var offset: CGFloat = 0
@@ -19,7 +17,7 @@ struct FlowingColorView: View {
     
     @State var colors: [Color] = ColorfulPreset.aurora.colors
 //    @State var colors: [Color] = [.random.opacity(0.5),.random.opacity(0.5),.random.opacity(0.5),.random.opacity(0.5)]
-    @State var speed: Double = 1
+    @State var speed: Double = 0.3
     @State var bias: Double = 0.01
     @State var noise: Double = 0
     @State var transitionSpeed: Double = 5

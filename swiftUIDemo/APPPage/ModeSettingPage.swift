@@ -10,7 +10,8 @@ import SwiftUI
 struct ModeSettingPage: View {
     @State var selectIndex: Int = -1
     @State var isCycleTimeMode: Bool = true
-
+    @State var usePassword: Bool = true
+    @State var password: String = "123"
     
     var body: some View {
         List {
@@ -43,6 +44,21 @@ struct ModeSettingPage: View {
             }
             .foregroundStyle(Color.black.opacity(0.85))
             .font(.system(size: 16))
+            
+            Section("密码") {
+                Toggle("使用密码", isOn: $usePassword)
+                if usePassword {
+                    HStack(spacing: 20) {
+                        Text("密码设置")
+                        Spacer()
+                        ForEach(0..<4,id: \.self){ index in
+                            PasswordView(circleFillColor: .green, circleStrokeColor: .green.opacity(0.85), circleSize: 10, index: index, password: $password)
+                                .padding(.horizontal, -5)
+                        }
+                        Image(systemName: "chevron.forward")
+                    }
+                }
+            }
             
             Section("时间设置") {
                 VStack {
@@ -90,7 +106,6 @@ struct ModeSettingPage: View {
                             }else{
                                 selectIndex = 0
                             }
-                            
                         }
                         .overlay(
                             //圆角

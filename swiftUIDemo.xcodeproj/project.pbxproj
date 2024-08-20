@@ -20,6 +20,16 @@
 		4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
 		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
+		44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CA2C7434270045E2B3 /* PasswordButton.swift */; };
+		44A955D12C7434280045E2B3 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CB2C7434270045E2B3 /* PasswordView.swift */; };
+		44A955D22C7434280045E2B3 /* ResetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CC2C7434270045E2B3 /* ResetPasswordPage.swift */; };
+		44A955D32C7434280045E2B3 /* PasswordOpenPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CD2C7434280045E2B3 /* PasswordOpenPage.swift */; };
+		44A955D42C7434280045E2B3 /* LockedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CE2C7434280045E2B3 /* LockedPageView.swift */; };
+		44A955D52C7434280045E2B3 /* FaceIDOpenPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CF2C7434280045E2B3 /* FaceIDOpenPage.swift */; };
+		44A955D72C7441A50045E2B3 /* AddModeNamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955D62C7441A50045E2B3 /* AddModeNamePage.swift */; };
+		44A955DA2C7465C40045E2B3 /* MCEmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 44A955D92C7465C40045E2B3 /* MCEmojiPicker */; };
+		44A955DC2C7494550045E2B3 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955DB2C7494550045E2B3 /* ConfettiView.swift */; };
+		44A955E02C749F210045E2B3 /* TextFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955DF2C749F210045E2B3 /* TextFloatView.swift */; };
 		44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FC22C60CCE500B6B926 /* Waves.swift */; };
 		44D15FC52C60D66D00B6B926 /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FC42C60D66D00B6B926 /* Joystick.swift */; };
 		44D15FC92C61BC5300B6B926 /* TimerCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FC82C61BC5300B6B926 /* TimerCircle.swift */; };
@@ -68,6 +78,15 @@
 		4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCycleTimePage.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
+		44A955CA2C7434270045E2B3 /* PasswordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
+		44A955CB2C7434270045E2B3 /* PasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		44A955CC2C7434270045E2B3 /* ResetPasswordPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordPage.swift; sourceTree = "<group>"; };
+		44A955CD2C7434280045E2B3 /* PasswordOpenPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordOpenPage.swift; sourceTree = "<group>"; };
+		44A955CE2C7434280045E2B3 /* LockedPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockedPageView.swift; sourceTree = "<group>"; };
+		44A955CF2C7434280045E2B3 /* FaceIDOpenPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceIDOpenPage.swift; sourceTree = "<group>"; };
+		44A955D62C7441A50045E2B3 /* AddModeNamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModeNamePage.swift; sourceTree = "<group>"; };
+		44A955DB2C7494550045E2B3 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		44A955DF2C749F210045E2B3 /* TextFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFloatView.swift; sourceTree = "<group>"; };
 		44D15FC22C60CCE500B6B926 /* Waves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waves.swift; sourceTree = "<group>"; };
 		44D15FC42C60D66D00B6B926 /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		44D15FC82C61BC5300B6B926 /* TimerCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCircle.swift; sourceTree = "<group>"; };
@@ -87,6 +106,7 @@
 			files = (
 				44D15FF12C64976900B6B926 /* ColorfulX in Frameworks */,
 				44D1B9242C6A118300D1054D /* AnimateText in Frameworks */,
+				44A955DA2C7465C40045E2B3 /* MCEmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +163,7 @@
 				44D15FC42C60D66D00B6B926 /* Joystick.swift */,
 				44D15FC22C60CCE500B6B926 /* Waves.swift */,
 				44D1B9252C6A11DB00D1054D /* ZYAnimateText.swift */,
+				44A955DB2C7494550045E2B3 /* ConfettiView.swift */,
 				442C41272C57664200E2FDDA /* Assets.xcassets */,
 				442C41292C57664200E2FDDA /* Preview Content */,
 			);
@@ -183,8 +204,24 @@
 				4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */,
 				4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */,
 				E5D453562C737F0800CC0693 /* ModeLockView.swift */,
+				44A955D62C7441A50045E2B3 /* AddModeNamePage.swift */,
+				44A955C92C74340B0045E2B3 /* lockView */,
+				44A955DF2C749F210045E2B3 /* TextFloatView.swift */,
 			);
 			path = APPPage;
+			sourceTree = "<group>";
+		};
+		44A955C92C74340B0045E2B3 /* lockView */ = {
+			isa = PBXGroup;
+			children = (
+				44A955CF2C7434280045E2B3 /* FaceIDOpenPage.swift */,
+				44A955CE2C7434280045E2B3 /* LockedPageView.swift */,
+				44A955CA2C7434270045E2B3 /* PasswordButton.swift */,
+				44A955CD2C7434280045E2B3 /* PasswordOpenPage.swift */,
+				44A955CB2C7434270045E2B3 /* PasswordView.swift */,
+				44A955CC2C7434270045E2B3 /* ResetPasswordPage.swift */,
+			);
+			path = lockView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +243,7 @@
 			packageProductDependencies = (
 				44D15FF02C64976900B6B926 /* ColorfulX */,
 				44D1B9232C6A118300D1054D /* AnimateText */,
+				44A955D92C7465C40045E2B3 /* MCEmojiPicker */,
 			);
 			productName = swiftUIDemo;
 			productReference = 442C41202C57664000E2FDDA /* swiftUIDemo.app */;
@@ -282,6 +320,7 @@
 			packageReferences = (
 				44D15FEF2C64976900B6B926 /* XCRemoteSwiftPackageReference "ColorfulX" */,
 				44D1B9222C6A118300D1054D /* XCRemoteSwiftPackageReference "AnimateText" */,
+				44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */,
 			);
 			productRefGroup = 442C41212C57664000E2FDDA /* Products */;
 			projectDirPath = "";
@@ -327,20 +366,29 @@
 			files = (
 				4432F3C12C731C78006A03D4 /* ModeSettingPage.swift in Sources */,
 				449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */,
+				44A955D52C7434280045E2B3 /* FaceIDOpenPage.swift in Sources */,
 				44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */,
+				44A955D42C7434280045E2B3 /* LockedPageView.swift in Sources */,
 				44D15FCD2C620D2C00B6B926 /* CircleTypography.swift in Sources */,
+				44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */,
 				4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */,
 				44D15FCB2C61C8C700B6B926 /* Drag3D.swift in Sources */,
+				44A955D32C7434280045E2B3 /* PasswordOpenPage.swift in Sources */,
 				442C41262C57664000E2FDDA /* ContentView.swift in Sources */,
+				44A955D72C7441A50045E2B3 /* AddModeNamePage.swift in Sources */,
+				44A955E02C749F210045E2B3 /* TextFloatView.swift in Sources */,
 				4432F3BD2C6F3A39006A03D4 /* MySettingPage.swift in Sources */,
 				44D15FC52C60D66D00B6B926 /* Joystick.swift in Sources */,
+				44A955DC2C7494550045E2B3 /* ConfettiView.swift in Sources */,
 				449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */,
 				44D15FCF2C621BCD00B6B926 /* SKScene.swift in Sources */,
 				44D15FC92C61BC5300B6B926 /* TimerCircle.swift in Sources */,
 				44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */,
 				4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */,
+				44A955D12C7434280045E2B3 /* PasswordView.swift in Sources */,
 				44D15FE82C6368AD00B6B926 /* OffsetInScrollView.swift in Sources */,
 				44D15FD92C63482E00B6B926 /* FlowingColorView.swift in Sources */,
+				44A955D22C7434280045E2B3 /* ResetPasswordPage.swift in Sources */,
 				E5D453572C737F0800CC0693 /* ModeLockView.swift in Sources */,
 				442C41242C57664000E2FDDA /* swiftUIDemoApp.swift in Sources */,
 			);
@@ -676,6 +724,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 		44D15FEF2C64976900B6B926 /* XCRemoteSwiftPackageReference "ColorfulX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Lakr233/ColorfulX";
@@ -695,6 +751,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		44A955D92C7465C40045E2B3 /* MCEmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */;
+			productName = MCEmojiPicker;
+		};
 		44D15FF02C64976900B6B926 /* ColorfulX */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 44D15FEF2C64976900B6B926 /* XCRemoteSwiftPackageReference "ColorfulX" */;
