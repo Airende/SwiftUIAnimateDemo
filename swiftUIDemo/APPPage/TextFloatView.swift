@@ -18,8 +18,8 @@ struct PureGeniusView: View {
         .frame(width: 320, height: 320)
         .foregroundColor(.init(hue: 0.8, saturation: 0.25, brightness: 0.75))
       VStack {
-        PGWordView(word: ["P", "U", "R", "E"]).offset(x: 0, y: 20)
-        PGWordView(word: ["G", "E", "N", "I", "U", "S"]).offset(x: 0, y: -20)
+        PGWordView(word: ["竹", "叶", "专", "注"]).offset(x: 0, y: 40)
+        PGWordView(word: ["G", "E", "N", "I", "U", "S"]).offset(x: 0, y: -40)
       }
     }
   }
@@ -65,11 +65,11 @@ struct MovingLetterView: View {
   
   var body: some View {
     Text(text)
-      .background(self.color)
+      .foregroundStyle(self.color)
       .font(Font.custom("Baskerville-Bold", size: 40))
       .bold()
       .offset(x: self.position.x, y: self.position.y)
-      .animation(.easeInOut(duration: self.animationDuration))
+      .animation(.easeInOut(duration: self.animationDuration), value: self.position)
       .onAppear {
         self.activeTimer = self.timer
     }

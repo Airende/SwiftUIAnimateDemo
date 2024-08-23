@@ -13,19 +13,22 @@ struct MySKScene: View {
     @State private var dy: Double = -10
     @State private var isOpen: Bool = false
     @State private var isActive: Bool = false
+    @Binding var isClear: Bool
     
     var body: some View {
         GeometryReader { proxy in
             VStack {
-                FabulaSlider(value: $dx, title: "X", min: -20, max: 20) { value in
-                    isActive = value
-                }
-                FabulaSlider(value: $dy, title: "Y", min: -20, max: 20) { value in
-                    isActive = value
-                }
                 ZStack {
                     if !isActive {
                         SpriteView(scene: getScene(proxy.size))
+                    }
+                }
+                if !isClear {
+                    FabulaSlider(value: $dx, title: "X", min: -20, max: 20) { value in
+                        isActive = value
+                    }
+                    FabulaSlider(value: $dy, title: "Y", min: -20, max: 20) { value in
+                        isActive = value
                     }
                 }
             }
@@ -134,5 +137,5 @@ struct FabulaSlider: View {
 
 
 #Preview {
-    MySKScene()
+    MySKScene(isClear: .constant(false))
 }

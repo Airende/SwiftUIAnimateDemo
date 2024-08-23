@@ -18,6 +18,9 @@
 		4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */; };
 		4432F3C12C731C78006A03D4 /* ModeSettingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */; };
 		4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */; };
+		4452359F2C7727CC0071483E /* DemoHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4452359E2C7727CC0071483E /* DemoHomePage.swift */; };
+		445235A22C7744460071483E /* ColorfulX in Frameworks */ = {isa = PBXBuildFile; productRef = 445235A12C7744460071483E /* ColorfulX */; };
+		445235B32C7833A00071483E /* Tube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235B22C7833A00071483E /* Tube.swift */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
 		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
 		44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CA2C7434270045E2B3 /* PasswordButton.swift */; };
@@ -38,7 +41,6 @@
 		44D15FCF2C621BCD00B6B926 /* SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FCE2C621BCD00B6B926 /* SKScene.swift */; };
 		44D15FD92C63482E00B6B926 /* FlowingColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FD82C63482E00B6B926 /* FlowingColorView.swift */; };
 		44D15FE82C6368AD00B6B926 /* OffsetInScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D15FE72C6368AD00B6B926 /* OffsetInScrollView.swift */; };
-		44D15FF12C64976900B6B926 /* ColorfulX in Frameworks */ = {isa = PBXBuildFile; productRef = 44D15FF02C64976900B6B926 /* ColorfulX */; };
 		44D1B9242C6A118300D1054D /* AnimateText in Frameworks */ = {isa = PBXBuildFile; productRef = 44D1B9232C6A118300D1054D /* AnimateText */; };
 		44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D1B9252C6A11DB00D1054D /* ZYAnimateText.swift */; };
 		E5D453572C737F0800CC0693 /* ModeLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D453562C737F0800CC0693 /* ModeLockView.swift */; };
@@ -76,6 +78,8 @@
 		4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyVIPPage.swift; sourceTree = "<group>"; };
 		4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSettingPage.swift; sourceTree = "<group>"; };
 		4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCycleTimePage.swift; sourceTree = "<group>"; };
+		4452359E2C7727CC0071483E /* DemoHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoHomePage.swift; sourceTree = "<group>"; };
+		445235B22C7833A00071483E /* Tube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tube.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
 		44A955CA2C7434270045E2B3 /* PasswordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
@@ -104,8 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44D15FF12C64976900B6B926 /* ColorfulX in Frameworks */,
 				44D1B9242C6A118300D1054D /* AnimateText in Frameworks */,
+				445235A22C7744460071483E /* ColorfulX in Frameworks */,
 				44A955DA2C7465C40045E2B3 /* MCEmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +156,8 @@
 			children = (
 				4432F3BB2C6F3A01006A03D4 /* APPPage */,
 				442C41232C57664000E2FDDA /* swiftUIDemoApp.swift */,
+				4452359E2C7727CC0071483E /* DemoHomePage.swift */,
+				445235B22C7833A00071483E /* Tube.swift */,
 				449019042C64B63300A01C92 /* UmbrellaView.swift */,
 				44D15FD82C63482E00B6B926 /* FlowingColorView.swift */,
 				44D15FE72C6368AD00B6B926 /* OffsetInScrollView.swift */,
@@ -241,9 +247,9 @@
 			);
 			name = swiftUIDemo;
 			packageProductDependencies = (
-				44D15FF02C64976900B6B926 /* ColorfulX */,
 				44D1B9232C6A118300D1054D /* AnimateText */,
 				44A955D92C7465C40045E2B3 /* MCEmojiPicker */,
+				445235A12C7744460071483E /* ColorfulX */,
 			);
 			productName = swiftUIDemo;
 			productReference = 442C41202C57664000E2FDDA /* swiftUIDemo.app */;
@@ -318,9 +324,9 @@
 			);
 			mainGroup = 442C41172C57664000E2FDDA;
 			packageReferences = (
-				44D15FEF2C64976900B6B926 /* XCRemoteSwiftPackageReference "ColorfulX" */,
 				44D1B9222C6A118300D1054D /* XCRemoteSwiftPackageReference "AnimateText" */,
 				44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */,
+				445235A02C7744460071483E /* XCRemoteSwiftPackageReference "ColorfulX" */,
 			);
 			productRefGroup = 442C41212C57664000E2FDDA /* Products */;
 			projectDirPath = "";
@@ -372,6 +378,7 @@
 				44D15FCD2C620D2C00B6B926 /* CircleTypography.swift in Sources */,
 				44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */,
 				4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */,
+				4452359F2C7727CC0071483E /* DemoHomePage.swift in Sources */,
 				44D15FCB2C61C8C700B6B926 /* Drag3D.swift in Sources */,
 				44A955D32C7434280045E2B3 /* PasswordOpenPage.swift in Sources */,
 				442C41262C57664000E2FDDA /* ContentView.swift in Sources */,
@@ -389,6 +396,7 @@
 				44D15FE82C6368AD00B6B926 /* OffsetInScrollView.swift in Sources */,
 				44D15FD92C63482E00B6B926 /* FlowingColorView.swift in Sources */,
 				44A955D22C7434280045E2B3 /* ResetPasswordPage.swift in Sources */,
+				445235B32C7833A00071483E /* Tube.swift in Sources */,
 				E5D453572C737F0800CC0693 /* ModeLockView.swift in Sources */,
 				442C41242C57664000E2FDDA /* swiftUIDemoApp.swift in Sources */,
 			);
@@ -724,20 +732,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		445235A02C7744460071483E /* XCRemoteSwiftPackageReference "ColorfulX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Lakr233/ColorfulX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.1;
+			};
+		};
 		44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.2.3;
-			};
-		};
-		44D15FEF2C64976900B6B926 /* XCRemoteSwiftPackageReference "ColorfulX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Lakr233/ColorfulX";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.5;
 			};
 		};
 		44D1B9222C6A118300D1054D /* XCRemoteSwiftPackageReference "AnimateText" */ = {
@@ -751,15 +759,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		445235A12C7744460071483E /* ColorfulX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445235A02C7744460071483E /* XCRemoteSwiftPackageReference "ColorfulX" */;
+			productName = ColorfulX;
+		};
 		44A955D92C7465C40045E2B3 /* MCEmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */;
 			productName = MCEmojiPicker;
-		};
-		44D15FF02C64976900B6B926 /* ColorfulX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 44D15FEF2C64976900B6B926 /* XCRemoteSwiftPackageReference "ColorfulX" */;
-			productName = ColorfulX;
 		};
 		44D1B9232C6A118300D1054D /* AnimateText */ = {
 			isa = XCSwiftPackageProductDependency;
