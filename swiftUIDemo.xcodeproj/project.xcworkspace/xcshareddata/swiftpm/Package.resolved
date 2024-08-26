@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "axissheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jasudev/AxisSheet.git",
+      "state" : {
+        "revision" : "7de0473c128b61df9720875cf70a36b105f11457",
+        "version" : "0.5.2"
+      }
+    },
+    {
       "identity" : "colorfulx",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Lakr233/ColorfulX",
@@ -43,6 +52,15 @@
       "state" : {
         "revision" : "08ad21d886e2e3f990ccbc6813eb6cdad8c427cd",
         "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "slidebutton",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/no-comment/SlideButton",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5eacebba4d7deeb693592bc9a62ab2d2181e133b"
       }
     },
     {

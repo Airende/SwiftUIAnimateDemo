@@ -11,7 +11,7 @@ import SwiftUI
 struct swiftUIDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            Tube()
+            FullTimePage()
         }
     }
 }

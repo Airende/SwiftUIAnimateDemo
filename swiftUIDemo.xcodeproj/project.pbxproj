@@ -21,6 +21,10 @@
 		4452359F2C7727CC0071483E /* DemoHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4452359E2C7727CC0071483E /* DemoHomePage.swift */; };
 		445235A22C7744460071483E /* ColorfulX in Frameworks */ = {isa = PBXBuildFile; productRef = 445235A12C7744460071483E /* ColorfulX */; };
 		445235B32C7833A00071483E /* Tube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235B22C7833A00071483E /* Tube.swift */; };
+		445235B52C7C4D8F0071483E /* FullTimePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235B42C7C4D8F0071483E /* FullTimePage.swift */; };
+		445235B82C7C72010071483E /* AxisSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 445235B72C7C72010071483E /* AxisSheet */; };
+		445235BA2C7C723A0071483E /* AxisSheetDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235B92C7C723A0071483E /* AxisSheetDemo.swift */; };
+		445235BD2C7C88150071483E /* SlideButton in Frameworks */ = {isa = PBXBuildFile; productRef = 445235BC2C7C88150071483E /* SlideButton */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
 		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
 		44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CA2C7434270045E2B3 /* PasswordButton.swift */; };
@@ -80,6 +84,8 @@
 		4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCycleTimePage.swift; sourceTree = "<group>"; };
 		4452359E2C7727CC0071483E /* DemoHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoHomePage.swift; sourceTree = "<group>"; };
 		445235B22C7833A00071483E /* Tube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tube.swift; sourceTree = "<group>"; };
+		445235B42C7C4D8F0071483E /* FullTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTimePage.swift; sourceTree = "<group>"; };
+		445235B92C7C723A0071483E /* AxisSheetDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisSheetDemo.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
 		44A955CA2C7434270045E2B3 /* PasswordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
@@ -108,9 +114,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445235BD2C7C88150071483E /* SlideButton in Frameworks */,
 				44D1B9242C6A118300D1054D /* AnimateText in Frameworks */,
 				445235A22C7744460071483E /* ColorfulX in Frameworks */,
 				44A955DA2C7465C40045E2B3 /* MCEmojiPicker in Frameworks */,
+				445235B82C7C72010071483E /* AxisSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +178,8 @@
 				44D15FC22C60CCE500B6B926 /* Waves.swift */,
 				44D1B9252C6A11DB00D1054D /* ZYAnimateText.swift */,
 				44A955DB2C7494550045E2B3 /* ConfettiView.swift */,
+				44A955DF2C749F210045E2B3 /* TextFloatView.swift */,
+				445235B92C7C723A0071483E /* AxisSheetDemo.swift */,
 				442C41272C57664200E2FDDA /* Assets.xcassets */,
 				442C41292C57664200E2FDDA /* Preview Content */,
 			);
@@ -211,8 +221,8 @@
 				4432F3C22C734422006A03D4 /* AddCycleTimePage.swift */,
 				E5D453562C737F0800CC0693 /* ModeLockView.swift */,
 				44A955D62C7441A50045E2B3 /* AddModeNamePage.swift */,
+				445235B42C7C4D8F0071483E /* FullTimePage.swift */,
 				44A955C92C74340B0045E2B3 /* lockView */,
-				44A955DF2C749F210045E2B3 /* TextFloatView.swift */,
 			);
 			path = APPPage;
 			sourceTree = "<group>";
@@ -250,6 +260,8 @@
 				44D1B9232C6A118300D1054D /* AnimateText */,
 				44A955D92C7465C40045E2B3 /* MCEmojiPicker */,
 				445235A12C7744460071483E /* ColorfulX */,
+				445235B72C7C72010071483E /* AxisSheet */,
+				445235BC2C7C88150071483E /* SlideButton */,
 			);
 			productName = swiftUIDemo;
 			productReference = 442C41202C57664000E2FDDA /* swiftUIDemo.app */;
@@ -327,6 +339,8 @@
 				44D1B9222C6A118300D1054D /* XCRemoteSwiftPackageReference "AnimateText" */,
 				44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */,
 				445235A02C7744460071483E /* XCRemoteSwiftPackageReference "ColorfulX" */,
+				445235B62C7C72010071483E /* XCRemoteSwiftPackageReference "AxisSheet" */,
+				445235BB2C7C88150071483E /* XCRemoteSwiftPackageReference "SlideButton" */,
 			);
 			productRefGroup = 442C41212C57664000E2FDDA /* Products */;
 			projectDirPath = "";
@@ -372,11 +386,13 @@
 			files = (
 				4432F3C12C731C78006A03D4 /* ModeSettingPage.swift in Sources */,
 				449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */,
+				445235B52C7C4D8F0071483E /* FullTimePage.swift in Sources */,
 				44A955D52C7434280045E2B3 /* FaceIDOpenPage.swift in Sources */,
 				44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */,
 				44A955D42C7434280045E2B3 /* LockedPageView.swift in Sources */,
 				44D15FCD2C620D2C00B6B926 /* CircleTypography.swift in Sources */,
 				44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */,
+				445235BA2C7C723A0071483E /* AxisSheetDemo.swift in Sources */,
 				4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */,
 				4452359F2C7727CC0071483E /* DemoHomePage.swift in Sources */,
 				44D15FCB2C61C8C700B6B926 /* Drag3D.swift in Sources */,
@@ -740,6 +756,22 @@
 				minimumVersion = 5.3.1;
 			};
 		};
+		445235B62C7C72010071483E /* XCRemoteSwiftPackageReference "AxisSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jasudev/AxisSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.2;
+			};
+		};
+		445235BB2C7C88150071483E /* XCRemoteSwiftPackageReference "SlideButton" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/no-comment/SlideButton";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker.git";
@@ -763,6 +795,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 445235A02C7744460071483E /* XCRemoteSwiftPackageReference "ColorfulX" */;
 			productName = ColorfulX;
+		};
+		445235B72C7C72010071483E /* AxisSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445235B62C7C72010071483E /* XCRemoteSwiftPackageReference "AxisSheet" */;
+			productName = AxisSheet;
+		};
+		445235BC2C7C88150071483E /* SlideButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445235BB2C7C88150071483E /* XCRemoteSwiftPackageReference "SlideButton" */;
+			productName = SlideButton;
 		};
 		44A955D92C7465C40045E2B3 /* MCEmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;
