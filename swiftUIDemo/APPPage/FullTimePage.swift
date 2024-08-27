@@ -24,51 +24,76 @@ struct FullTimePage: View {
             Color.black
                 .ignoresSafeArea()
             TimelineView(.periodic(from: .now, by: 1.0 * 1)) { context in
-                VStack(spacing: 20) {
-                    HStack {
-                        Text(self.subTimeString(timeDate: context.date, start: 0, end: 6))
-                        Text(self.getTodayWeekday())
-                    }
-                    .padding(.bottom, 20)
-                    .font(.custom("Monaco", size: 20))
-
-                    Group {
-                        VStack {
-                            //时间
-                            HStack(alignment:.bottom) {
-                                //时分
-                                Text(self.subTimeString(timeDate: context.date, start: 7, end: 12))
-                                //秒
-                                Text(self.subTimeString(timeDate: context.date, start: 13, end: 15))
-                                    .font(.system(size: 20))
-                                    .offset(x: -8, y: -25)
-                                    .frame(width: 30)
-                                    .padding(.trailing, 10)
-                                    .opacity(configModel.showSecond ? 1 : 0)
+                //飞镖
+                ZStack {
+                    VStack {
+                        Text("🎯")
+                            .font(.system(size: 150))
+                            .padding(.top, 60)
+                            .offset(x:18)
+                            .mask {
+                                RoundedRectangle(cornerRadius: 0)
+                                    .fill(Color.clear)
+                                    .overlay(content: {
+                                        LinearGradient(stops: [.init(color: .clear, location: 0.0),
+                                                               .init(color: .white, location: 0.2)], startPoint: .bottom, endPoint: .top)
+                                        .offset(y: -40)
+                                    })
+                                    .offset(x:18)
                             }
-                            .animation(.easeInOut, value: configModel.showSecond)
-                            
-                            HStack(alignment: .bottom) {
-                                if configModel.showProgress {
+                        Spacer()
+                    }
+                    .opacity(configModel.showIcon ? 1 : 0)
+                    .animation(.easeIn, value: configModel.showIcon)
+                    VStack(spacing: 20) {
+                        //日期
+                        HStack {
+                            Text(self.subTimeString(timeDate: context.date, start: 0, end: 6))
+                            Text(self.getTodayWeekday())
+                        }
+                        .padding(.bottom, 20)
+                        .font(.custom("Monaco", size: 20))
+                        .opacity(tapView ? 1 : 0)
+
+                        Group {
+                            VStack {
+                                //时间
+                                HStack(alignment:.bottom) {
+                                    //时分
+                                    Text(self.subTimeString(timeDate: context.date, start: 7, end: 12))
+                                        .opacity(1)
+                                    //秒
+                                    Text(self.subTimeString(timeDate: context.date, start: 13, end: 15))
+                                        .font(.system(size: 20))
+                                        .offset(x: -8, y: -25)
+                                        .frame(width: 30)
+                                        .padding(.trailing, 10)
+                                        .opacity(configModel.showSecond ? 0 : 1)
+                                }
+                                .animation(.easeIn, value: configModel.showSecond)
+                                
+                                
+                                HStack(alignment: .bottom) {
                                     Text("⏳")
                                     Text("30%")
+                                    Spacer()
+                                    Text("🎯")
+                                        .offset(x:-10 ,y: -1.5)
+                                    Text("10:30")
+                                        .offset(x:-15)
                                 }
-                                Spacer()
-                                Text("🎯")
-                                    .offset(x:-10 ,y: -1.5)
-                                Text("10:30")
-                                    .offset(x:-15)
+                                .font(.custom("Monaco", size: 20))
+                                .padding(.horizontal, 10)
+                                .opacity(tapView ? 1 : 0)
                             }
-                            .animation(.easeInOut, value: configModel.showProgress)
-                            .font(.custom("Monaco", size: 20))
-                            .padding(.horizontal, 10)
                         }
+                        .offset(x:21, y:-50)
                     }
-                    .offset(x:21, y:-50)
+                    .fontWidth(.standard)
+                    .font(.custom("Monaco", size: 130))
+                    .foregroundStyle(Color.white.opacity(0.5))
+                    .animation(.easeInOut, value: tapView)
                 }
-                .fontWidth(.standard)
-                .font(.custom("Monaco", size: 130))
-                .foregroundStyle(Color.white.opacity(0.5))
             }
             
             HStack{
@@ -80,11 +105,9 @@ struct FullTimePage: View {
             
             VStack {
                 Spacer()
-                SlideButton(styling: .init()) {
-    //                print("jjjjjjjjj")
-                } label: {
-                    Text("解锁文本")
-                }
+                HoldDownButton(text: "长按解锁", paddingHorizontal: 100, paddingVertical: 20, duration: 2, scale: 0.95, background: .white.opacity(0.5), loadingTint: .black, action: {
+                    print("1111")
+                })
                 .padding()
             }
             .padding(.bottom, 100)
@@ -103,6 +126,16 @@ struct FullTimePage: View {
         })
         .onDisappear(perform: {
             UIApplication.shared.isIdleTimerDisabled = false
+        })
+        .onChange(of: isPresented, perform: { newValue in
+            if isPresented {
+                timerManager.stopTimer()
+            }else{
+                timerManager.stopTimer()
+                timerManager.startTimer {
+                    tapView = false
+                }
+            }
         })
         .onTapGesture {
             tapView.toggle()
@@ -195,7 +228,7 @@ struct SheetConstants: View {
             Section(header: Text("屏幕").foregroundColor(.accentColor)) {
                 SheetSlider(title: "亮度", value: $currentBrightness, range: 0...1.0)
                 Toggle("常亮", isOn: $configModel.alwaysOn)
-                Toggle("显示进度", isOn: $configModel.showProgress)
+                Toggle("显示图片", isOn: $configModel.showIcon)
                 Toggle("显示秒钟", isOn: $configModel.showSecond)
 //                SheetSlider(title: "size", value: $constants.header.size, range: 24...70)
 //                SheetSlider(title: "shortAxis", value: $constants.header.shortAxis, range: 0...10)
@@ -229,8 +262,9 @@ struct SheetConstants: View {
 
 struct TimeMainConfigModel {
     var alwaysOn: Bool = false
-    var showProgress: Bool = true
+    var isClearMode: Bool = false
     var showSecond: Bool = true
+    var showIcon: Bool = true
 }
 
 fileprivate

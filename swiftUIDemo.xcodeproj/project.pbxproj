@@ -25,6 +25,11 @@
 		445235B82C7C72010071483E /* AxisSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 445235B72C7C72010071483E /* AxisSheet */; };
 		445235BA2C7C723A0071483E /* AxisSheetDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235B92C7C723A0071483E /* AxisSheetDemo.swift */; };
 		445235BD2C7C88150071483E /* SlideButton in Frameworks */ = {isa = PBXBuildFile; productRef = 445235BC2C7C88150071483E /* SlideButton */; };
+		445235BF2C7D6F4D0071483E /* RollingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235BE2C7D6F4D0071483E /* RollingTextView.swift */; };
+		445235C12C7DB44E0071483E /* ModeListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235C02C7DB44E0071483E /* ModeListPage.swift */; };
+		445235C32C7DB7800071483E /* HoldDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235C22C7DB7800071483E /* HoldDownButton.swift */; };
+		445235CA2C7DD81B0071483E /* SetTimeLongPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235C92C7DD81B0071483E /* SetTimeLongPage.swift */; };
+		445235CD2C7DDC360071483E /* SlidingRuler in Frameworks */ = {isa = PBXBuildFile; productRef = 445235CC2C7DDC360071483E /* SlidingRuler */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
 		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
 		44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CA2C7434270045E2B3 /* PasswordButton.swift */; };
@@ -86,6 +91,10 @@
 		445235B22C7833A00071483E /* Tube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tube.swift; sourceTree = "<group>"; };
 		445235B42C7C4D8F0071483E /* FullTimePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTimePage.swift; sourceTree = "<group>"; };
 		445235B92C7C723A0071483E /* AxisSheetDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisSheetDemo.swift; sourceTree = "<group>"; };
+		445235BE2C7D6F4D0071483E /* RollingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingTextView.swift; sourceTree = "<group>"; };
+		445235C02C7DB44E0071483E /* ModeListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeListPage.swift; sourceTree = "<group>"; };
+		445235C22C7DB7800071483E /* HoldDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldDownButton.swift; sourceTree = "<group>"; };
+		445235C92C7DD81B0071483E /* SetTimeLongPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeLongPage.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
 		44A955CA2C7434270045E2B3 /* PasswordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
@@ -116,6 +125,7 @@
 			files = (
 				445235BD2C7C88150071483E /* SlideButton in Frameworks */,
 				44D1B9242C6A118300D1054D /* AnimateText in Frameworks */,
+				445235CD2C7DDC360071483E /* SlidingRuler in Frameworks */,
 				445235A22C7744460071483E /* ColorfulX in Frameworks */,
 				44A955DA2C7465C40045E2B3 /* MCEmojiPicker in Frameworks */,
 				445235B82C7C72010071483E /* AxisSheet in Frameworks */,
@@ -165,6 +175,7 @@
 				4432F3BB2C6F3A01006A03D4 /* APPPage */,
 				442C41232C57664000E2FDDA /* swiftUIDemoApp.swift */,
 				4452359E2C7727CC0071483E /* DemoHomePage.swift */,
+				445235BE2C7D6F4D0071483E /* RollingTextView.swift */,
 				445235B22C7833A00071483E /* Tube.swift */,
 				449019042C64B63300A01C92 /* UmbrellaView.swift */,
 				44D15FD82C63482E00B6B926 /* FlowingColorView.swift */,
@@ -180,6 +191,8 @@
 				44A955DB2C7494550045E2B3 /* ConfettiView.swift */,
 				44A955DF2C749F210045E2B3 /* TextFloatView.swift */,
 				445235B92C7C723A0071483E /* AxisSheetDemo.swift */,
+				445235C02C7DB44E0071483E /* ModeListPage.swift */,
+				445235C22C7DB7800071483E /* HoldDownButton.swift */,
 				442C41272C57664200E2FDDA /* Assets.xcassets */,
 				442C41292C57664200E2FDDA /* Preview Content */,
 			);
@@ -222,6 +235,7 @@
 				E5D453562C737F0800CC0693 /* ModeLockView.swift */,
 				44A955D62C7441A50045E2B3 /* AddModeNamePage.swift */,
 				445235B42C7C4D8F0071483E /* FullTimePage.swift */,
+				445235C92C7DD81B0071483E /* SetTimeLongPage.swift */,
 				44A955C92C74340B0045E2B3 /* lockView */,
 			);
 			path = APPPage;
@@ -262,6 +276,7 @@
 				445235A12C7744460071483E /* ColorfulX */,
 				445235B72C7C72010071483E /* AxisSheet */,
 				445235BC2C7C88150071483E /* SlideButton */,
+				445235CC2C7DDC360071483E /* SlidingRuler */,
 			);
 			productName = swiftUIDemo;
 			productReference = 442C41202C57664000E2FDDA /* swiftUIDemo.app */;
@@ -341,6 +356,7 @@
 				445235A02C7744460071483E /* XCRemoteSwiftPackageReference "ColorfulX" */,
 				445235B62C7C72010071483E /* XCRemoteSwiftPackageReference "AxisSheet" */,
 				445235BB2C7C88150071483E /* XCRemoteSwiftPackageReference "SlideButton" */,
+				445235CB2C7DDC360071483E /* XCRemoteSwiftPackageReference "SlidingRuler" */,
 			);
 			productRefGroup = 442C41212C57664000E2FDDA /* Products */;
 			projectDirPath = "";
@@ -391,12 +407,15 @@
 				44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */,
 				44A955D42C7434280045E2B3 /* LockedPageView.swift in Sources */,
 				44D15FCD2C620D2C00B6B926 /* CircleTypography.swift in Sources */,
+				445235BF2C7D6F4D0071483E /* RollingTextView.swift in Sources */,
 				44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */,
 				445235BA2C7C723A0071483E /* AxisSheetDemo.swift in Sources */,
+				445235C32C7DB7800071483E /* HoldDownButton.swift in Sources */,
 				4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */,
 				4452359F2C7727CC0071483E /* DemoHomePage.swift in Sources */,
 				44D15FCB2C61C8C700B6B926 /* Drag3D.swift in Sources */,
 				44A955D32C7434280045E2B3 /* PasswordOpenPage.swift in Sources */,
+				445235CA2C7DD81B0071483E /* SetTimeLongPage.swift in Sources */,
 				442C41262C57664000E2FDDA /* ContentView.swift in Sources */,
 				44A955D72C7441A50045E2B3 /* AddModeNamePage.swift in Sources */,
 				44A955E02C749F210045E2B3 /* TextFloatView.swift in Sources */,
@@ -409,6 +428,7 @@
 				44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */,
 				4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */,
 				44A955D12C7434280045E2B3 /* PasswordView.swift in Sources */,
+				445235C12C7DB44E0071483E /* ModeListPage.swift in Sources */,
 				44D15FE82C6368AD00B6B926 /* OffsetInScrollView.swift in Sources */,
 				44D15FD92C63482E00B6B926 /* FlowingColorView.swift in Sources */,
 				44A955D22C7434280045E2B3 /* ResetPasswordPage.swift in Sources */,
@@ -503,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -560,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -772,6 +792,14 @@
 				kind = branch;
 			};
 		};
+		445235CB2C7DDC360071483E /* XCRemoteSwiftPackageReference "SlidingRuler" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Pyroh/SlidingRuler";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 		44A955D82C7465C40045E2B3 /* XCRemoteSwiftPackageReference "MCEmojiPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/izyumkin/MCEmojiPicker.git";
@@ -805,6 +833,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 445235BB2C7C88150071483E /* XCRemoteSwiftPackageReference "SlideButton" */;
 			productName = SlideButton;
+		};
+		445235CC2C7DDC360071483E /* SlidingRuler */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 445235CB2C7DDC360071483E /* XCRemoteSwiftPackageReference "SlidingRuler" */;
+			productName = SlidingRuler;
 		};
 		44A955D92C7465C40045E2B3 /* MCEmojiPicker */ = {
 			isa = XCSwiftPackageProductDependency;
