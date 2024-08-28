@@ -77,6 +77,7 @@ struct WaveView: View {
                 }
             }
         })
+        .scaleEffect(1.05)
     }
 }
 

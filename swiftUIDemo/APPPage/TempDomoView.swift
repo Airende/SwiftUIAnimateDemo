@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ColorfulX
+import AxisSheet
 
 struct TempDomoView: View {
     @State var isOpen = true
@@ -14,9 +15,9 @@ struct TempDomoView: View {
     @State var timeSelectType: Int = 0
     @State var toTimeDate: Date = Date()
     @State var count: Int = 0
-    @State private var isPresentTimePoint = false
-    @State private var isPresentTimeLong = false
-
+    @State private var timeUseType: Int = 1 //1:时长 2:时间点
+    @State private var timeLong: CGFloat = 25
+    @State private var timeDate: Date = .now + 60*25
     
     var body: some View {
         
@@ -28,9 +29,9 @@ struct TempDomoView: View {
                         .font(.system(size: 150, weight: .regular))
                         .padding(0)
                     HStack {
-                        Text("专注模式")
+                        Text(timeUseType==1 ? "专注时长：\(Int(timeLong))分钟" : "专注到：\(Date.formatDateToShanghai(timeDate, dateFormat: "HH:mm"))")
                             .padding(0)
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 20, weight: .medium))
                             .onTapGesture {
                                 isOpen.toggle()
                             }
@@ -42,92 +43,51 @@ struct TempDomoView: View {
 //                HStack {
                     VStack {
                         if isOpen {
-                            HStack(spacing: 20) {
-                                Text("⏳")
-                                    .onTapGesture {
-                                        self.isPresentTimeLong.toggle()
-                                    }
-                                Text("🕒")
-                                    .onTapGesture {
-                                        self.isPresentTimePoint.toggle()
-                                    }
+                            VStack {
+                                HStack(spacing: 20) {
+                                    Text("⏳")
+                                        .onTapGesture {
+                                            self.timeUseType = 1
+                                        }
+                                        .scaleEffect(0.9)
+                                        .opacity(self.timeUseType == 1 ? 1 : 0.3)
+                                        
+                                    Text("🕒")
+                                        .onTapGesture {
+                                            self.timeUseType = 2
+                                        }
+                                        .scaleEffect( 0.9)
+                                        .opacity(self.timeUseType == 2 ? 1 : 0.3)
+                                }
+                                .font(.title)
+                                .scaleEffect(0.9)
+                                .background(Color.blue.opacity(0.2).padding(-5))
+                                .cornerRadius(5.0)
+                                
+                                ZStack {
+                                    SheetTimeLongView(timeLong: $timeLong)
+                                        .frame(height: 155)
+                                        .rotation3DEffect(
+                                            Angle(degrees: self.timeUseType == 1 ? 0 : 90),
+                                                                  axis: (x: 1.0, y: 0.0, z: 0.0)
+                                        )
+                                        .opacity(self.timeUseType == 1 ? 1 : 0)
+                                    SheetTimePointView(selectedDate: $timeDate)
+                                        .frame(height: 155)
+                                        .rotation3DEffect(
+                                            Angle(degrees: self.timeUseType == 2 ? 0 : -90),
+                                                                  axis: (x: 1.0, y: 0.0, z: 0.0)
+                                        )
+                                        .opacity(self.timeUseType == 2 ? 1 : 0)
+                                }
                             }
-                            .font(.largeTitle)
                         }else{
                             EmptyView()
                         }
-//                        ForEach(0..<2) { index in
-//                            if isOpen {
-//                                if index == 0 {
-//                                    ZStack {
-//                                        DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
-//                                        }
-//                                        .labelsHidden()
-//                                        .frame(maxWidth: .infinity)
-//                                        .scaleEffect(.init(1.5))
-//                                        .opacity(timeSelectType == index ? 1 : 0)
-//                                        .frame(maxHeight: timeSelectType == index ? 100 : 50)
-//                                        .background(
-////                                            timeSelectType == index ? Color.blue.opacity(0.15) : Color.gray.opacity(0.2)
-//                                        )
-//                                        .overlay(
-//                                            RoundedRectangle(cornerRadius: 20)
-//                                                .stroke(Color.clear, lineWidth: 2)
-////                                                .shadow(color: Color.red.opacity(1), radius: 20, x: 2, y: 2)
-//                                        )
-//                                        .cornerRadius(20)
-//                                        .onTapGesture {
-//                                            timeSelectType = index
-//                                        }
-//                                        .shadow(color: Color.blue.opacity(0.2), radius: 5, x: 0, y: 2)
-//                                        
-//                                        Text("使用专注时间点")
-//                                            .font(.title2)
-//                                            .opacity(timeSelectType != index ? 1 : 0)
-//                                    }
-//                                    .animation(.easeInOut, value: timeSelectType)
-//                                    
-//                                }else{
-//                                    ZStack {
-//                                        RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-//                                            .foregroundColor(
-//                                                timeSelectType == index ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2)
-//                                            )
-//                                            .frame(maxHeight: timeSelectType == index ? 100 : 50)
-//                                            .onTapGesture {
-//                                                timeSelectType = index
-//                                            }
-//                                            .animation(.easeInOut, value: timeSelectType)
-//                                        ZStack {
-//                                            DatePicker(selection: $toTimeDate, in: Date()...Date()+60*2, displayedComponents: .hourAndMinute) {
-//                                            }
-//                                            .frame(width: 0, alignment: .center)
-//                                            .scaleEffect(.init(1.5))
-//                                            .opacity(timeSelectType == index ? 1 : 0)
-//                                            .animation(.easeInOut, value: timeSelectType)
-//                                            
-//                                            Text("使用时长专注")
-//                                                .font(.title2)
-//                                                .opacity(timeSelectType != index ? 1 : 0)
-//                                                .animation(.easeInOut, value: timeSelectType)
-//                                        }
-//                                    }
-//                                    .animation(.easeInOut, value: timeSelectType)
-//                                }
-//                                
-//                            }else {
-//                                EmptyView()
-//                            }
-//                            
-//                        }
                     }
-                    .padding(.horizontal, 20)
+                    .animation(.easeIn, value: timeUseType)
                     .frame(height: isOpen ? UIScreen.main.bounds.height/4.0 : 0)
                     .animation(.easeInOut, value: isOpen)
-                    .background (
-//                        Color.gray.opacity(0.05)
-//                            .cornerRadius(20)
-                    )
                     .padding(.horizontal, 16)
                             
                 Button(action: {
@@ -137,21 +97,16 @@ struct TempDomoView: View {
                 }, label: {
                     Text("开始")
                         .font(.callout)
-                        .frame(width: UIScreen.main.bounds.width/2.5, height: 50)
+                        .frame(width: UIScreen.main.bounds.width/2, height: 50)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(25)
                 })
+                .padding()
             }
             .ignoresSafeArea()
             .animation(.easeInOut, value: isOpen)
             .offset(y: -50)
-            .sheet(isPresented: $isPresentTimePoint, content: {
-                Text("时间点")
-            })
-            .sheet(isPresented: $isPresentTimeLong, content: {
-                Text("设置时长")
-            })
             
             Waves()
                 .ignoresSafeArea()
@@ -159,14 +114,6 @@ struct TempDomoView: View {
                 .animation(.linear(duration: 5), value: isStart)
             
             self.logoText()
-            
-//            TimelineView(.periodic(from: .now, by: 1.0 * 1)) { context in
-//                VStack {
-//                    Text(String(describing: self.formatDateToShanghai(context.date)))
-//                        .font(.largeTitle)
-//                }
-//            }
-
         }
     }
     

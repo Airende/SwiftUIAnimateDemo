@@ -30,6 +30,7 @@
 		445235C32C7DB7800071483E /* HoldDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235C22C7DB7800071483E /* HoldDownButton.swift */; };
 		445235CA2C7DD81B0071483E /* SetTimeLongPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235C92C7DD81B0071483E /* SetTimeLongPage.swift */; };
 		445235CD2C7DDC360071483E /* SlidingRuler in Frameworks */ = {isa = PBXBuildFile; productRef = 445235CC2C7DDC360071483E /* SlidingRuler */; };
+		445235CF2C7F165D0071483E /* FullWavesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235CE2C7F165D0071483E /* FullWavesPage.swift */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
 		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
 		44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CA2C7434270045E2B3 /* PasswordButton.swift */; };
@@ -95,6 +96,7 @@
 		445235C02C7DB44E0071483E /* ModeListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeListPage.swift; sourceTree = "<group>"; };
 		445235C22C7DB7800071483E /* HoldDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldDownButton.swift; sourceTree = "<group>"; };
 		445235C92C7DD81B0071483E /* SetTimeLongPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeLongPage.swift; sourceTree = "<group>"; };
+		445235CE2C7F165D0071483E /* FullWavesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWavesPage.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
 		44A955CA2C7434270045E2B3 /* PasswordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				E5D453562C737F0800CC0693 /* ModeLockView.swift */,
 				44A955D62C7441A50045E2B3 /* AddModeNamePage.swift */,
 				445235B42C7C4D8F0071483E /* FullTimePage.swift */,
+				445235CE2C7F165D0071483E /* FullWavesPage.swift */,
 				445235C92C7DD81B0071483E /* SetTimeLongPage.swift */,
 				44A955C92C74340B0045E2B3 /* lockView */,
 			);
@@ -428,6 +431,7 @@
 				44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */,
 				4432F3C32C734422006A03D4 /* AddCycleTimePage.swift in Sources */,
 				44A955D12C7434280045E2B3 /* PasswordView.swift in Sources */,
+				445235CF2C7F165D0071483E /* FullWavesPage.swift in Sources */,
 				445235C12C7DB44E0071483E /* ModeListPage.swift in Sources */,
 				44D15FE82C6368AD00B6B926 /* OffsetInScrollView.swift in Sources */,
 				44D15FD92C63482E00B6B926 /* FlowingColorView.swift in Sources */,

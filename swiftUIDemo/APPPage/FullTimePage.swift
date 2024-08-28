@@ -147,15 +147,15 @@ struct FullTimePage: View {
         .statusBar(hidden: true)
     }
     
-    func formatDateToShanghai(_ date: Date) -> String {
+    func formatDateToShanghai(_ date: Date, dateFormat: String = "HH:mm:ss") -> String {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(identifier: "Asia/Shanghai") // 设置时区为上海
-        formatter.dateFormat = "MM月dd日 HH:mm:ss" // 只显示小时和分钟
+        formatter.dateFormat = dateFormat
         return formatter.string(from: date)
     }
     
     func subTimeString(timeDate: Date, start: Int, end: Int)->String{
-        let str = self.formatDateToShanghai(timeDate)
+        let str = self.formatDateToShanghai(timeDate,dateFormat: "MM月dd日 HH:mm:ss")
         // 获取从索引 7 开始，到索引 12 结束的子字符串
         let startIndex = str.index(str.startIndex, offsetBy: start)
         let endIndex = str.index(str.startIndex, offsetBy: end)
