@@ -13,145 +13,162 @@ struct ModeSettingPage: View {
     @State var usePassword: Bool = true
     @State var password: String = "123"
     
+    @State var isPresentEdit: Bool = false
+    
     var body: some View {
-        List {
-            Section {
-                headerInfo()
-            }
-            .listRowSeparator(.hidden)
-            .listRowBackground(Color(uiColor: UIColor.systemGroupedBackground))
-            
-            Section("应用管理") {
-                VStack {
-                    HStack {
-                        selectAppCell(title: "限制应用", apps: [])
-                        Divider()
-                        selectAppCell(title: "隐藏应用", apps: [1,2])
-                    }
-                    Divider()
+        NavigationView(content: {
+            List {
+                Section {
+                    headerInfo()
                 }
                 .listRowSeparator(.hidden)
-                Toggle(isOn: .constant(true)) {
-                    Label("限制安装", systemImage:"plus.square.fill")
-                       
-                }
-                Toggle(isOn: .constant(true)) {
-                    Label("限制删除", systemImage:"minus.square.fill")
-                }
-                Toggle(isOn: .constant(true)) {
-                    Label("限制支付", systemImage:"yensign.square.fill")
-                }
-            }
-            .foregroundStyle(Color.black.opacity(0.85))
-            .font(.system(size: 16))
-            
-            Section("密码") {
-                Toggle("使用密码", isOn: $usePassword)
-                if usePassword {
-                    HStack(spacing: 20) {
-                        Text("密码设置")
-                        Spacer()
-                        ForEach(0..<4,id: \.self){ index in
-                            PasswordView(circleFillColor: .green, circleStrokeColor: .green.opacity(0.85), circleSize: 10, index: index, password: $password)
-                                .padding(.horizontal, -5)
-                        }
-                        Image(systemName: "chevron.forward")
-                    }
-                }
-            }
-            
-            Section("时间设置") {
-                VStack {
-                    HStack {
-                        Text("时长模式")
-                            .foregroundStyle( !isCycleTimeMode ? Color.green : Color.secondary)
-                            .onTapGesture {
-                                isCycleTimeMode = false
+                .listRowBackground(Color(uiColor: UIColor.systemGroupedBackground))
+                
+                Section("应用管理") {
+                    Group {
+                        VStack {
+                            HStack {
+                                selectAppCell(title: "限制应用", apps: [])
+                                Divider()
+                                selectAppCell(title: "隐藏应用", apps: [1,2])
                             }
-                        Toggle("", isOn: $isCycleTimeMode)
-                            .labelsHidden()
-                            .frame(maxWidth: .infinity)
-                        Text("周期模式")
-                            .foregroundStyle( isCycleTimeMode ? Color.green : Color.secondary)
-                            .onTapGesture {
-                                isCycleTimeMode = true
-                            }
-                    }
-                    if isCycleTimeMode {
-                        addTimeCycleCell(timeCycle: "9:00-10:00", weekly: "", isOpen: true)
-                        addTimeCycleCell(timeCycle: "19:00-21:00", weekly: "", isOpen: false)
-                        Button("添加定时") {
-                            
+                            Divider()
                         }
-                        .buttonStyle(.plain)
-                        .padding(5)
-                        .foregroundStyle(Color.green)
-                    }else{
-                        Text("添加成功后可在主页面设置")
-                            .font(.title3)
-                            .foregroundStyle(Color.green.opacity(0.9))
-                            .padding()
-                    }
-                }
-            }
-            
-            Section("动画设置") {
-                HStack {
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .fill(Color.green.opacity(0.3))
-                        .frame(height: 100)
-                        .onTapGesture {
-                            if selectIndex == 0 {
-                                selectIndex = -1
-                            }else{
-                                selectIndex = 0
-                            }
-                        }
-                        .overlay(
-                            //圆角
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(selectIndex == 0 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 0 ? 3 : 0)
-                        )
+                        .listRowSeparator(.hidden)
                         
-                    RoundedRectangle(cornerRadius: 10.0)
-                        .fill(Color.green.opacity(0.3))
-                        .frame(height: 100)
-                        .onTapGesture {
-                            if selectIndex == 1 {
-                                selectIndex = -1
-                            }else{
-                                selectIndex = 1
-                            }
+                        Toggle(isOn: .constant(true)) {
+                            Label("限制安装", systemImage:"plus.square.fill")
+                               
                         }
-                        .overlay(
-                            //圆角
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(selectIndex == 1 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 1 ? 3 : 0)
-                        )
+                        Toggle(isOn: .constant(true)) {
+                            Label("限制删除", systemImage:"minus.square.fill")
+                        }
+                        Toggle(isOn: .constant(true)) {
+                            Label("限制支付", systemImage:"yensign.square.fill")
+                        }
+                    }
+                    .foregroundStyle(Color.black.opacity(0.85))
+                    .font(.system(size: 16))
+                }
+                
+                
+                Section("密码") {
+                    Toggle("使用密码", isOn: $usePassword)
+                    if usePassword {
+                        HStack(spacing: 20) {
+                            Text("密码设置")
+                            Spacer()
+                            ForEach(0..<4,id: \.self){ index in
+                                PasswordView(circleFillColor: .green, circleStrokeColor: .green.opacity(0.85), circleSize: 10, index: index, password: $password)
+                                    .padding(.horizontal, -5)
+                            }
+                            Image(systemName: "chevron.forward")
+                        }
+                    }
+                }
+                
+                Section("时间设置") {
+                    VStack {
+                        HStack {
+                            Text("时长模式")
+                                .foregroundStyle( !isCycleTimeMode ? Color.green : Color.secondary)
+                                .onTapGesture {
+                                    isCycleTimeMode = false
+                                }
+                            Toggle("", isOn: $isCycleTimeMode)
+                                .labelsHidden()
+                                .frame(maxWidth: .infinity)
+                            Text("周期模式")
+                                .foregroundStyle( isCycleTimeMode ? Color.green : Color.secondary)
+                                .onTapGesture {
+                                    isCycleTimeMode = true
+                                }
+                        }
+                        if isCycleTimeMode {
+                            addTimeCycleCell(timeCycle: "9:00-10:00", weekly: "", isOpen: true)
+                            addTimeCycleCell(timeCycle: "19:00-21:00", weekly: "", isOpen: false)
+                            Button("添加定时") {
+                                
+                            }
+                            .buttonStyle(.plain)
+                            .padding(5)
+                            .foregroundStyle(Color.green)
+                        }else{
+                            Text("添加成功后可在主页面设置")
+                                .font(.title3)
+                                .foregroundStyle(Color.green.opacity(0.9))
+                                .padding()
+                        }
+                    }
+                }
+                
+                Section("动画设置") {
+                    HStack {
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .fill(Color.green.opacity(0.3))
+                            .frame(height: 100)
+                            .onTapGesture {
+                                if selectIndex == 0 {
+                                    selectIndex = -1
+                                }else{
+                                    selectIndex = 0
+                                }
+                            }
+                            .overlay(
+                                //圆角
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(selectIndex == 0 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 0 ? 3 : 0)
+                            )
+                            
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .fill(Color.green.opacity(0.3))
+                            .frame(height: 100)
+                            .onTapGesture {
+                                if selectIndex == 1 {
+                                    selectIndex = -1
+                                }else{
+                                    selectIndex = 1
+                                }
+                            }
+                            .overlay(
+                                //圆角
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(selectIndex == 1 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 1 ? 3 : 0)
+                            )
+                    }
+                }
+                
+                Section {
+                    Button("删除该模式") {
+                        
+                    }
+                    .foregroundStyle(Color.red)
+                    .frame(maxWidth: .infinity)
                 }
             }
-            
-            Section {
-                Button("删除该模式") {
-                    
-                }
-                .foregroundStyle(Color.red)
-                .frame(maxWidth: .infinity)
+            .sheet(isPresented: $isPresentEdit) {
+                AddModeNamePage()
             }
-        }
+        })
         
     }
     
     func headerInfo() -> some View {
         return HStack {
             Spacer()
-            VStack {
-                Text("⛈️")
-                    .font(.system(size: 120))
-                Text("市值风云")
-                    .font(.title2)
-                    .fontWeight(.medium)
-            }
+            Button(action: {
+                self.isPresentEdit.toggle()
+            }, label: {
+                VStack {
+                    Text("⛈️")
+                        .font(.system(size: 120))
+                    Text("市值风云")
+                        .font(.system(size: 28))
+                        .fontWeight(.medium)
+                        .foregroundStyle(.black)
+                }
+            })
+
             Spacer()
         }
     }

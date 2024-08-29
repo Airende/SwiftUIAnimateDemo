@@ -31,8 +31,10 @@
 		445235CA2C7DD81B0071483E /* SetTimeLongPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235C92C7DD81B0071483E /* SetTimeLongPage.swift */; };
 		445235CD2C7DDC360071483E /* SlidingRuler in Frameworks */ = {isa = PBXBuildFile; productRef = 445235CC2C7DDC360071483E /* SlidingRuler */; };
 		445235CF2C7F165D0071483E /* FullWavesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235CE2C7F165D0071483E /* FullWavesPage.swift */; };
+		445235D12C8047C10071483E /* ModeHomeListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235D02C8047C10071483E /* ModeHomeListPage.swift */; };
+		445235D32C807A460071483E /* IMSeitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235D22C807A460071483E /* IMSeitch.swift */; };
 		449019052C64B63300A01C92 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019042C64B63300A01C92 /* UmbrellaView.swift */; };
-		449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TempDomoView.swift */; };
+		449019092C69AA4800A01C92 /* TimeModeMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449019082C69AA4800A01C92 /* TimeModeMainPage.swift */; };
 		44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CA2C7434270045E2B3 /* PasswordButton.swift */; };
 		44A955D12C7434280045E2B3 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CB2C7434270045E2B3 /* PasswordView.swift */; };
 		44A955D22C7434280045E2B3 /* ResetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A955CC2C7434270045E2B3 /* ResetPasswordPage.swift */; };
@@ -97,8 +99,10 @@
 		445235C22C7DB7800071483E /* HoldDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldDownButton.swift; sourceTree = "<group>"; };
 		445235C92C7DD81B0071483E /* SetTimeLongPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeLongPage.swift; sourceTree = "<group>"; };
 		445235CE2C7F165D0071483E /* FullWavesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWavesPage.swift; sourceTree = "<group>"; };
+		445235D02C8047C10071483E /* ModeHomeListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeHomeListPage.swift; sourceTree = "<group>"; };
+		445235D22C807A460071483E /* IMSeitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSeitch.swift; sourceTree = "<group>"; };
 		449019042C64B63300A01C92 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
-		449019082C69AA4800A01C92 /* TempDomoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDomoView.swift; sourceTree = "<group>"; };
+		449019082C69AA4800A01C92 /* TimeModeMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModeMainPage.swift; sourceTree = "<group>"; };
 		44A955CA2C7434270045E2B3 /* PasswordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
 		44A955CB2C7434270045E2B3 /* PasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		44A955CC2C7434270045E2B3 /* ResetPasswordPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordPage.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				4452359E2C7727CC0071483E /* DemoHomePage.swift */,
 				445235BE2C7D6F4D0071483E /* RollingTextView.swift */,
 				445235B22C7833A00071483E /* Tube.swift */,
+				445235D22C807A460071483E /* IMSeitch.swift */,
 				449019042C64B63300A01C92 /* UmbrellaView.swift */,
 				44D15FD82C63482E00B6B926 /* FlowingColorView.swift */,
 				44D15FE72C6368AD00B6B926 /* OffsetInScrollView.swift */,
@@ -229,7 +234,8 @@
 		4432F3BB2C6F3A01006A03D4 /* APPPage */ = {
 			isa = PBXGroup;
 			children = (
-				449019082C69AA4800A01C92 /* TempDomoView.swift */,
+				445235D02C8047C10071483E /* ModeHomeListPage.swift */,
+				449019082C69AA4800A01C92 /* TimeModeMainPage.swift */,
 				4432F3BC2C6F3A39006A03D4 /* MySettingPage.swift */,
 				4432F3BE2C6F3B16006A03D4 /* BuyVIPPage.swift */,
 				4432F3C02C731C78006A03D4 /* ModeSettingPage.swift */,
@@ -409,6 +415,7 @@
 				44A955D52C7434280045E2B3 /* FaceIDOpenPage.swift in Sources */,
 				44D1B9262C6A11DB00D1054D /* ZYAnimateText.swift in Sources */,
 				44A955D42C7434280045E2B3 /* LockedPageView.swift in Sources */,
+				445235D12C8047C10071483E /* ModeHomeListPage.swift in Sources */,
 				44D15FCD2C620D2C00B6B926 /* CircleTypography.swift in Sources */,
 				445235BF2C7D6F4D0071483E /* RollingTextView.swift in Sources */,
 				44A955D02C7434280045E2B3 /* PasswordButton.swift in Sources */,
@@ -417,6 +424,7 @@
 				4432F3BF2C6F3B16006A03D4 /* BuyVIPPage.swift in Sources */,
 				4452359F2C7727CC0071483E /* DemoHomePage.swift in Sources */,
 				44D15FCB2C61C8C700B6B926 /* Drag3D.swift in Sources */,
+				445235D32C807A460071483E /* IMSeitch.swift in Sources */,
 				44A955D32C7434280045E2B3 /* PasswordOpenPage.swift in Sources */,
 				445235CA2C7DD81B0071483E /* SetTimeLongPage.swift in Sources */,
 				442C41262C57664000E2FDDA /* ContentView.swift in Sources */,
@@ -425,7 +433,7 @@
 				4432F3BD2C6F3A39006A03D4 /* MySettingPage.swift in Sources */,
 				44D15FC52C60D66D00B6B926 /* Joystick.swift in Sources */,
 				44A955DC2C7494550045E2B3 /* ConfettiView.swift in Sources */,
-				449019092C69AA4800A01C92 /* TempDomoView.swift in Sources */,
+				449019092C69AA4800A01C92 /* TimeModeMainPage.swift in Sources */,
 				44D15FCF2C621BCD00B6B926 /* SKScene.swift in Sources */,
 				44D15FC92C61BC5300B6B926 /* TimerCircle.swift in Sources */,
 				44D15FC32C60CCE500B6B926 /* Waves.swift in Sources */,

@@ -8,6 +8,16 @@
 import SwiftUI
 import ColorfulX
 
+enum ColorfulExtentsion {
+    case blackBlue
+    
+    public var colors: [Color] {
+        switch self {
+        case .blackBlue: [make(0, 0, 0), make(108, 137, 198), make(44, 59, 108), make(22, 30, 45)]
+        }
+    }
+}
+
 struct FlowingColorView: View {    
     var clear = false
     
@@ -18,13 +28,12 @@ struct FlowingColorView: View {
 
     @State var colors: [Color] = ColorfulPreset.starry.colors
 
-//    @State var colors: [Color] = [.random.opacity(0.5),.random.opacity(0.5),.random.opacity(0.5),.random.opacity(0.5)]
+//    @State var colors: [Color] = [.black,.black.opacity(0.9),.black.opacity(0.5),.black.opacity(0.8)]
     @State var speed: Double = 0.3
     @State var bias: Double = 0.01
     @State var noise: Double = 0
     @State var renderScale: Double = 2
     @State var transitionSpeed: Double = 5
-    
     
     var body: some View {
         ZStack {
@@ -70,6 +79,15 @@ struct FlowingColorView: View {
         .onChange(of: preset) { colors = $0.colors}
         .padding(10)
     }
+}
+
+private func make(_ r: Int, _ g: Int, _ b: Int, _ a: Int = 255) -> Color {
+    Color(ColorElement(
+        red: Double(r) / 255,
+        green: Double(g) / 255,
+        blue: Double(b) / 255,
+        alpha: Double(a) / 255
+    ))
 }
 
 #Preview {

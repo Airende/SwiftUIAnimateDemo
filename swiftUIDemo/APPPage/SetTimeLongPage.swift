@@ -166,9 +166,7 @@ struct SheetTimeLongView: View {
                          snap: .fraction,
                          tick: .fraction,
                          formatter: formatter)
-        }
-        .background(Color.white)
-        
+        }        
     }
 }
 
@@ -197,7 +195,6 @@ struct SheetTimePointView: View {
                 }
 
         }
-        .background(Color.white)
     }
 }
 
