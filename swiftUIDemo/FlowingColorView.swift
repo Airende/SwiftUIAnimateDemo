@@ -19,7 +19,7 @@ enum ColorfulExtentsion {
 }
 
 struct FlowingColorView: View {    
-    var clear = false
+    var clear = true
     
     @State private var offset: CGFloat = 0
     @State var currentPage = 0

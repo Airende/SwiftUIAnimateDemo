@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ModeSettingPage: View {
     @State var selectIndex: Int = -1
-    @State var isCycleTimeMode: Bool = true
+    @State var isCycleTimeMode: Bool = false
     @State var usePassword: Bool = true
     @State var password: String = "123"
     
     @State var isPresentEdit: Bool = false
+    @State private var isOn: Bool = false
+
     
     var body: some View {
         NavigationView(content: {
@@ -68,22 +70,40 @@ struct ModeSettingPage: View {
                 }
                 
                 Section("时间设置") {
-                    VStack {
-                        HStack {
+                    VStack() {
+                        HStack(alignment: .top) {
                             Text("时长模式")
                                 .foregroundStyle( !isCycleTimeMode ? Color.green : Color.secondary)
                                 .onTapGesture {
                                     isCycleTimeMode = false
+                                    //使动画和下方的布局不在同一个周期
+                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
+                                        withAnimation(Animation.customSpring) {
+                                            isOn = false
+                                        }
+                                    }))
+                                    
                                 }
-                            Toggle("", isOn: $isCycleTimeMode)
-                                .labelsHidden()
+                            
+                            Toggle("", isOn: $isOn)
+                                .frame(width: 160, height: 20)
+                                .toggleStyle(TimeToggleStyle(themeColor: Color.green))
                                 .frame(maxWidth: .infinity)
+                                .onChange(of: isOn) { newValue in
+                                    isCycleTimeMode = isOn
+                                }
                             Text("周期模式")
                                 .foregroundStyle( isCycleTimeMode ? Color.green : Color.secondary)
                                 .onTapGesture {
                                     isCycleTimeMode = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
+                                        withAnimation(Animation.customSpring) {
+                                            isOn = true
+                                        }
+                                    }))
                                 }
                         }
+                        
                         if isCycleTimeMode {
                             addTimeCycleCell(timeCycle: "9:00-10:00", weekly: "", isOpen: true)
                             addTimeCycleCell(timeCycle: "19:00-21:00", weekly: "", isOpen: false)

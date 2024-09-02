@@ -80,6 +80,7 @@ struct MySettingPage: View {
                 .scrollIndicators(.hidden)
         }
         .navigationViewStyle(StackNavigationViewStyle()) // 在 iPad 上全屏显示列表
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func VIPInfoCell() -> some View {

@@ -14,13 +14,9 @@ struct ModeHomeListPage: View {
     @State var paddingInsets: EdgeInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
     @State var editing: Bool = false
     
-    @Namespace private var animationNamespace
-
-    
     var body: some View {
         NavigationView(content: {
             ZStack(){
-                
                 TabView(selection: $currentPageIndex) {
                     ForEach(Array(texts.enumerated()), id: \.offset) { index, string  in
                         TimeModeMainPage(isEditing: $editing)
@@ -31,12 +27,10 @@ struct ModeHomeListPage: View {
                             }
                     }
                 }
-                .gesture(DragGesture().onChanged { _ in })
-                .scrollDisabled(editing ? true : false)
-                .cornerRadius(36)
+                .padding(.top, editing ? 0 : -20)
                 .padding(paddingInsets)
                 .frame(height: UIScreen.main.bounds.height)
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: editing ? .always : .never))
+                .cornerRadius(36)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
                 .onTapGesture(count: 1, perform: {
                     self.becomeEdit(false)
@@ -44,17 +38,39 @@ struct ModeHomeListPage: View {
                 .onLongPressGesture(perform: {
                     self.becomeEdit(true)
                 })
-                .ignoresSafeArea()
-                
-                HStack {
-                    Button("Toggle Editing") {
-                                    withAnimation(.easeInOut) {
-                                        self.editing = true
-                                        self.paddingInsets = .init(top: 100, leading: 30, bottom: 100, trailing: 30)
-                                    }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: editing ? .automatic : .never))
+//                .ignoresSafeArea()
+                .overlay(content: {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                withAnimation(.easeInOut) {
+                                    self.editing = true
+                                    self.paddingInsets = .init(top: 100, leading: 30, bottom: 100, trailing: 30)
                                 }
-                    Spacer()
-                }
+                            }, label: {
+                                Image(systemName: "slider.horizontal.3")
+                                .padding(.trailing, 10)
+                                .padding(.top, 10)
+                            })
+                            
+                            NavigationLink {
+                                MySettingPage()
+                            } label: {
+                                Image(systemName: "square.rightthird.inset.filled")
+                                    .padding(.trailing, 15)
+                                    .padding(.top, 10)
+                            }
+//                            .border(.red, width: 1)
+                        }
+                        .foregroundStyle(Color.black.opacity(0.8))
+                        Spacer()
+                        
+                    }
+                    .opacity(editing ? 0 : 1)
+                    .padding(.top, 40)
+                })
                 
                 topTitleView(texts[currentPageIndex])
                 bottomEditView()
@@ -66,6 +82,7 @@ struct ModeHomeListPage: View {
             }
             .animation(.easeInOut, value: editing)
         })
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func becomeEdit(_ isEdit: Bool){
