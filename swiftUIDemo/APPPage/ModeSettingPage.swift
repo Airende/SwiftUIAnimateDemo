@@ -14,7 +14,15 @@ struct ModeSettingPage: View {
     @State var password: String = "123"
     
     @State var isPresentEdit: Bool = false
-    @State private var isOn: Bool = false
+    @State private var isTimeOn: Bool = false
+    @State private var isDenyInstallOn: Bool = false
+    @State private var isDenyDeleteOn: Bool = false
+    @State private var isDenyPayOn: Bool = false
+    
+    @State private var oldPassword: String = "1111"
+
+
+    var themeColor: Color = .green
 
     
     var body: some View {
@@ -32,22 +40,14 @@ struct ModeSettingPage: View {
                             HStack {
                                 selectAppCell(title: "限制应用", apps: [])
                                 Divider()
-                                selectAppCell(title: "隐藏应用", apps: [1,2])
+                                selectAppCell(title: "隐藏应用", apps: [1,2,3])
                             }
                             Divider()
                         }
                         .listRowSeparator(.hidden)
-                        
-                        Toggle(isOn: .constant(true)) {
-                            Label("限制安装", systemImage:"plus.square.fill")
-                               
-                        }
-                        Toggle(isOn: .constant(true)) {
-                            Label("限制删除", systemImage:"minus.square.fill")
-                        }
-                        Toggle(isOn: .constant(true)) {
-                            Label("限制支付", systemImage:"yensign.square.fill")
-                        }
+                        toggleSwitch(title: "限制安装", image: "plus.square.fill", isOn: $isDenyInstallOn)
+                        toggleSwitch(title: "限制删除", image: "minus.square.fill", isOn: $isDenyDeleteOn)
+                        toggleSwitch(title: "限制支付", image: "yensign.square.fill", isOn: $isDenyPayOn)
                     }
                     .foregroundStyle(Color.black.opacity(0.85))
                     .font(.system(size: 16))
@@ -55,16 +55,16 @@ struct ModeSettingPage: View {
                 
                 
                 Section("密码") {
-                    Toggle("使用密码", isOn: $usePassword)
-                    if usePassword {
-                        HStack(spacing: 20) {
-                            Text("密码设置")
-                            Spacer()
-                            ForEach(0..<4,id: \.self){ index in
-                                PasswordView(circleFillColor: .green, circleStrokeColor: .green.opacity(0.85), circleSize: 10, index: index, password: $password)
-                                    .padding(.horizontal, -5)
-                            }
-                            Image(systemName: "chevron.forward")
+                    toggleSwitch(title:"使用密码", isOn: $usePassword)
+                    NavigationLink {
+                        if oldPassword.count > 0 {
+                            ResetPasswordPage(isChangePassword: true)
+                        } else {
+                            ResetPasswordPage()
+                        }
+                    } label: {
+                        if usePassword {
+                            Text(oldPassword.count > 0 ? "修改密码" : "密码设置")
                         }
                     }
                 }
@@ -79,18 +79,18 @@ struct ModeSettingPage: View {
                                     //使动画和下方的布局不在同一个周期
                                     DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
                                         withAnimation(Animation.customSpring) {
-                                            isOn = false
+                                            isTimeOn = false
                                         }
                                     }))
                                     
                                 }
                             
-                            Toggle("", isOn: $isOn)
+                            Toggle("", isOn: $isTimeOn)
                                 .frame(width: 160, height: 20)
                                 .toggleStyle(TimeToggleStyle(themeColor: Color.green))
                                 .frame(maxWidth: .infinity)
-                                .onChange(of: isOn) { newValue in
-                                    isCycleTimeMode = isOn
+                                .onChange(of: isTimeOn) { newValue in
+                                    isCycleTimeMode = isTimeOn
                                 }
                             Text("周期模式")
                                 .foregroundStyle( isCycleTimeMode ? Color.green : Color.secondary)
@@ -98,15 +98,19 @@ struct ModeSettingPage: View {
                                     isCycleTimeMode = true
                                     DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
                                         withAnimation(Animation.customSpring) {
-                                            isOn = true
+                                            isTimeOn = true
                                         }
                                     }))
                                 }
                         }
                         
                         if isCycleTimeMode {
+                            addTimeCycleCell(timeCycle: "00:00-00:00", weekly: "", isOpen: true)
                             addTimeCycleCell(timeCycle: "9:00-10:00", weekly: "", isOpen: true)
                             addTimeCycleCell(timeCycle: "19:00-21:00", weekly: "", isOpen: false)
+                                .onTapGesture {
+                                    
+                                }
                             Button("添加定时") {
                                 
                             }
@@ -193,6 +197,20 @@ struct ModeSettingPage: View {
         }
     }
     
+    //开关列表
+    func toggleSwitch(title: String, image: String? = nil, isOn: Binding<Bool>) -> some View{
+        return HStack {
+            if image != nil {
+                Label(title, systemImage:image ?? "")
+            }else {
+                Text(title)
+            }
+            Spacer()
+            ZYToggle(isOn: isOn, onColor: themeColor)
+                .frame(width: 48, height: 28)
+        }
+    }
+    
     func selectAppCell(title: String, apps: [Int]) -> some View {
         return VStack {
             HStack {
@@ -208,31 +226,39 @@ struct ModeSettingPage: View {
                     .font(.title2)
                     .frame(height: 45)
             }else{
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color.green)
-                    .frame(width: 45, height: 45)
+                HStack {
+                    ForEach(Array(apps.enumerated()), id: \.offset) { model, index in
+                        RoundedRectangle(cornerRadius: 10.0)
+                            .fill(Color.green)
+                            .frame(width: 45, height: 45)
+                    }
+                }
             }
         }
     }
     
     func addTimeCycleCell(timeCycle: String, weekly: String, isOpen: Bool) -> some View{
-        return VStack {
-            HStack {
-                Image(systemName: "clock.fill")
-                    .font(.system(size: 20))
+        return NavigationLink {
+            AddCycleTimePage(isOpen: .constant(true))
+        } label: {
+            VStack {
+                HStack {
+                    Image(systemName: "clock.fill")
+                        .font(.system(size: 20))
+                        .foregroundStyle(Color.primary)
+                    VStack(alignment: .leading) {
+                        Text(timeCycle)
+                        Text("每周一，周三，周日")
+                    }
                     .foregroundStyle(Color.primary)
-                VStack(alignment: .leading) {
-                    Text(timeCycle)
-                    Text("每周一，周三，周日")
+                    Spacer()
+                    Text(isOpen ? "打开" : "关闭")
+                    Image(systemName: "chevron.forward")
+                        .font(.callout)
                 }
-                .foregroundStyle(Color.primary)
-                Spacer()
-                Text(isOpen ? "打开" : "关闭")
-                Image(systemName: "chevron.forward")
-                    .font(.callout)
+                .foregroundStyle(Color.gray)
+                Divider()
             }
-            .foregroundStyle(Color.gray)
-            Divider()
         }
     }
 }

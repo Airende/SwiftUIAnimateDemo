@@ -76,7 +76,6 @@ struct ModeLockView: View {
     }
 }
 
-fileprivate
 extension View {
     func warning(_ interval: CGFloat) -> some View {
         self.modifier(WarningEffect(interval))
@@ -84,7 +83,6 @@ extension View {
     }
 }
 
-fileprivate
 struct WarningEffect: GeometryEffect {
     
     var animatableData: CGFloat

@@ -17,6 +17,8 @@ struct ResetPasswordPage: View {
     @State var tipString: String = ""
     @State var count = 1
     @State var tempNewPassword = ""
+    @State private var shakingInterval: CGFloat = 0
+
         
     var body: some View {
         NavigationView(content: {
@@ -29,8 +31,9 @@ struct ResetPasswordPage: View {
                     })
                     .padding(.horizontal, 20)
                     
-                    Text("设置密码")
-                        .font(.title)
+                    Text(isChangePassword ? "修改密码" : "设置密码")
+                        .font(.system(size: 22))
+                        .fontWeight(.regular)
                         .padding()
                         .onTapGesture(count: 3, perform: {
                             appPassword = "1234"
@@ -47,14 +50,16 @@ struct ResetPasswordPage: View {
                 })
 
                 Text(tipString)
-                    .padding(.top, 60)
-                    .foregroundStyle(.primary)
+                    .font(.system(size: 16))
+                    .padding(.top, 90)
+                    .padding(.bottom, 30)
                 ZStack{
                     HStack(spacing: 20) {
                         ForEach(0..<4,id: \.self){ index in
                             PasswordView(index: index, password: $password)
                         }
                     }
+                    .warning(shakingInterval)
 
                     TextField("", text: $password)
                         .onChange(of: password) { newValue in
@@ -64,6 +69,7 @@ struct ResetPasswordPage: View {
                                     TimeTool.after(0.5) {
                                         tipString = "旧密码错误请重新输入"
                                         password = ""
+                                        shakingInterval += 1
                                     }
                                 }else if password == appPassword {
                                     UINotificationFeedbackGenerator().notificationOccurred(.success)
@@ -101,7 +107,7 @@ struct ResetPasswordPage: View {
                                         tipString = "密码不一致请从新输入"
                                         tempNewPassword = ""
                                         count = 1
-                                        
+                                        shakingInterval += 1
                                         TimeTool.after(0.5) {
                                             password = ""
                                         }
@@ -127,20 +133,17 @@ struct ResetPasswordPage: View {
                         }
                     }
                 }
-
                 Spacer()
-                Button("收起键盘") {
-                    isNameFocused = false
-                }
             })
             .onAppear(perform: {
-                if appPassword?.count == 4 {
+                if appPassword?.count == 4 || isChangePassword {
                     tipString = "请输入旧密码"
                 }else{
                     tipString = "请设置密码"
                 }
             })
         })
+
     }
 }
 
