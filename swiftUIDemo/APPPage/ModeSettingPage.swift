@@ -20,6 +20,8 @@ struct ModeSettingPage: View {
     @State private var isDenyPayOn: Bool = false
     
     @State private var oldPassword: String = "1111"
+    
+    @State private var isPresent1: Bool = false
 
 
     var themeColor: Color = .green
@@ -27,7 +29,7 @@ struct ModeSettingPage: View {
     
     var body: some View {
         NavigationView(content: {
-            List {
+            Form {
                 Section {
                     headerInfo()
                 }
@@ -56,18 +58,21 @@ struct ModeSettingPage: View {
                 
                 Section("密码") {
                     toggleSwitch(title:"使用密码", isOn: $usePassword)
-                    NavigationLink {
-                        if oldPassword.count > 0 {
-                            ResetPasswordPage(isChangePassword: true)
-                        } else {
-                            ResetPasswordPage()
-                        }
-                    } label: {
-                        if usePassword {
-                            Text(oldPassword.count > 0 ? "修改密码" : "密码设置")
+                    if usePassword {
+                        NavigationLink {
+                            if oldPassword.count > 0 {
+                                ResetPasswordPage(isChangePassword: true)
+                            } else {
+                                ResetPasswordPage()
+                            }
+                        } label: {
+                            if usePassword {
+                                Text(oldPassword.count > 0 ? "修改密码" : "密码设置")
+                            }
                         }
                     }
                 }
+                
                 
                 Section("时间设置") {
                     VStack() {
@@ -106,11 +111,16 @@ struct ModeSettingPage: View {
                         
                         if isCycleTimeMode {
                             addTimeCycleCell(timeCycle: "00:00-00:00", weekly: "", isOpen: true)
+                                .onTapGesture {
+                                    isPresent1.toggle()
+                                }
+                                .sheet(isPresented: $isPresent1) {
+                                    AddCycleTimePage(isOpen: $isTimeOn)
+                                }
                             addTimeCycleCell(timeCycle: "9:00-10:00", weekly: "", isOpen: true)
                             addTimeCycleCell(timeCycle: "19:00-21:00", weekly: "", isOpen: false)
-                                .onTapGesture {
-                                    
-                                }
+                            .buttonStyle(PlainButtonStyle())
+
                             Button("添加定时") {
                                 
                             }
@@ -170,6 +180,7 @@ struct ModeSettingPage: View {
                     .frame(maxWidth: .infinity)
                 }
             }
+            .animation(.easeInOut, value: usePassword)
             .sheet(isPresented: $isPresentEdit) {
                 AddModeNamePage()
             }
@@ -238,27 +249,23 @@ struct ModeSettingPage: View {
     }
     
     func addTimeCycleCell(timeCycle: String, weekly: String, isOpen: Bool) -> some View{
-        return NavigationLink {
-            AddCycleTimePage(isOpen: .constant(true))
-        } label: {
-            VStack {
-                HStack {
-                    Image(systemName: "clock.fill")
-                        .font(.system(size: 20))
-                        .foregroundStyle(Color.primary)
-                    VStack(alignment: .leading) {
-                        Text(timeCycle)
-                        Text("每周一，周三，周日")
-                    }
+        return VStack {
+            HStack {
+                Image(systemName: "clock.fill")
+                    .font(.system(size: 20))
                     .foregroundStyle(Color.primary)
-                    Spacer()
-                    Text(isOpen ? "打开" : "关闭")
-                    Image(systemName: "chevron.forward")
-                        .font(.callout)
+                VStack(alignment: .leading) {
+                    Text(timeCycle)
+                    Text("每周一，周三，周日")
                 }
-                .foregroundStyle(Color.gray)
-                Divider()
+                .foregroundStyle(Color.primary)
+                Spacer()
+                Text(isOpen ? "打开" : "关闭")
+                Image(systemName: "chevron.forward")
+                    .font(.callout)
             }
+            .foregroundStyle(Color.gray)
+            Divider()
         }
     }
 }
