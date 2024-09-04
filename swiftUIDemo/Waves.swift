@@ -9,14 +9,15 @@ import SwiftUI
 
 struct Waves: View {
     let colors = [Color(hex: 0x1D427B), Color(hex: 0x285D99), Color(hex: 0x3476BA), Color(hex: 0x4091DA), Color(hex: 0x54A7E2), Color(hex: 0x71BDEB), Color(hex: 0x91D3F3), Color(hex: 0xB5E8FC)]
-
+    var stopAnimation: Bool = true
+    
     var body: some View {
         
         GeometryReader { proxy in
             ZStack{
                 Color.clear
                 ForEach(Array(colors.enumerated()), id: \.offset) { index, color in
-                    WaveView(waveColor: color, waveHeight: Double(colors.count-index)*Double.random(in: 0.007...0.009), progress: 0)
+                    WaveView(waveColor: color, waveHeight: Double(colors.count-index)*Double.random(in: 0.007...0.009), progress: 0, stopAnimation: stopAnimation)
                 }
             }
             .shadow(color: .black.opacity(0.3), radius: 10, x: 0.0, y: 0.0)
@@ -63,6 +64,7 @@ struct WaveView: View {
     var waveColor: Color
     var waveHeight: Double = 0.025
     var progress: Double
+    var stopAnimation: Bool = false
     @State private var waveOffset = Angle(degrees: 0)
     
     var body: some View {
@@ -72,7 +74,7 @@ struct WaveView: View {
         }
         .onAppear(perform: {
             DispatchQueue.main.async {
-                withAnimation(Animation.linear(duration: CGFloat(waveHeight*100)).repeatForever(autoreverses: false)) {
+                withAnimation(Animation.linear(duration: stopAnimation ? 0 : CGFloat(waveHeight*100)).repeatForever(autoreverses: false)) {
                     self.waveOffset = Angle.degrees(360)
                 }
             }

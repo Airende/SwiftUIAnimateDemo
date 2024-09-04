@@ -56,6 +56,147 @@ struct ModeSettingPage: View {
                 }
                 
                 
+                Section("时间设置") {
+                    VStack() {
+                        HStack(alignment: .top) {
+                            Text("时长模式")
+                                .foregroundStyle( !isCycleTimeMode ? Color.green : Color.secondary)
+                                .fontWeight(!isCycleTimeMode ? .medium : .regular)
+                                .onTapGesture {
+                                    isCycleTimeMode = false
+                                    //使动画和下方的布局不在同一个周期
+                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
+                                        withAnimation(Animation.customSpring) {
+                                            isTimeOn = false
+                                        }
+                                    }))
+                                }
+                            
+                            Toggle("", isOn: $isTimeOn)
+                                .frame(width: 160, height: 20)
+                                .toggleStyle(TimeToggleStyle(themeColor: Color.green))
+                                .frame(maxWidth: .infinity)
+                                .onChange(of: isTimeOn) { newValue in
+                                    isCycleTimeMode = isTimeOn
+                                }
+                            Text("周期模式")
+                                .foregroundStyle( isCycleTimeMode ? Color.green : Color.secondary)
+                                .fontWeight(isCycleTimeMode ? .medium : .regular)
+                                .onTapGesture {
+                                    isCycleTimeMode = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
+                                        withAnimation(Animation.customSpring) {
+                                            isTimeOn = true
+                                        }
+                                    }))
+                                }
+                        }
+                        .padding(.vertical, 5)
+                        .font(.system(size: 19))
+                        
+                        if isCycleTimeMode {
+                            VStack {
+                                Divider()
+                                HStack {
+                                    Label("时长", systemImage:"gauge.with.needle.fill")
+                                        .foregroundStyle(Color.black.opacity(0.85))
+                                    Spacer()
+                                    Text("开启后每天")
+                                        .foregroundStyle(Color.secondary)
+                                        .font(.system(size: 14))
+                                    
+                                }
+                                Divider()
+                            }
+                            
+//                            addTimeCycleCell(timeCycle: "00:00-00:00", weekly: "", isOpen: true)
+//                                .onTapGesture {
+//                                    isPresent1.toggle()
+//                                }
+//                                .sheet(isPresented: $isPresent1) {
+//                                    AddCycleTimePage(isOpen: $isTimeOn)
+//                                }
+//                            addTimeCycleCell(timeCycle: "9:00-10:00", weekly: "", isOpen: true)
+//                            addTimeCycleCell(timeCycle: "19:00-21:00", weekly: "", isOpen: false)
+
+                            Button("添加定时(后续开放)") {
+                                
+                            }
+                            .buttonStyle(.plain)
+                            .padding(5)
+                            .foregroundStyle(Color.green)
+                        }else{
+                            VStack {
+                                Divider()
+                                HStack {
+                                    Label("时长", systemImage:"timer.circle.fill")
+                                        .foregroundStyle(Color.black.opacity(0.85))
+                                    Spacer()
+                                    Text("稍后主页面设置")
+                                        .foregroundStyle(Color.secondary)
+                                        .font(.system(size: 14))
+                                    
+                                }
+                                Divider()
+                                HStack {
+                                    Label("启用动画", systemImage:"fireworks")
+                                        .foregroundStyle(Color.black.opacity(0.85))
+                                    Spacer()
+                                }
+                                
+                                HStack {
+                                    RoundedRectangle(cornerRadius: 10.0)
+                                        .fill(Color.black.opacity(0.9))
+                                        .frame(height: 100)
+                                        .onTapGesture {
+                                            if selectIndex == 0 {
+                                                selectIndex = -1
+                                            }else{
+                                                selectIndex = 0
+                                            }
+                                        }
+                                        .overlay(
+                                            //圆角
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(selectIndex == 0 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 0 ? 3 : 0)
+                                        )
+                                        .overlay {
+                                            Text("9:41")
+                                                .font(.system(size: 30))
+                                                .fontWeight(.medium)
+                                                .foregroundStyle(Color.white.opacity(0.75))
+                                        }
+                                        
+                                    Waves(stopAnimation: selectIndex == 1 ? false : true)
+                                        .frame(height: 100)
+                                        .onTapGesture {
+                                            if selectIndex == 1 {
+                                                selectIndex = -1
+                                            }else{
+                                                selectIndex = 1
+                                            }
+                                        }
+                                        .background(content: {
+                                            Color(hex: 0xB5E8FC).opacity(0.4)
+                                        })
+                                        .mask {
+                                            RoundedRectangle(cornerRadius: 10.0)
+                                        }
+                                        .overlay(
+                                            //圆角
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(selectIndex == 1 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 1 ? 3 : 0)
+                                        )
+                                        
+                                }
+                            }
+                            
+                            
+                            
+                        }
+                    }
+                }
+                
                 Section("密码") {
                     toggleSwitch(title:"使用密码", isOn: $usePassword)
                     if usePassword {
@@ -70,105 +211,6 @@ struct ModeSettingPage: View {
                                 Text(oldPassword.count > 0 ? "修改密码" : "密码设置")
                             }
                         }
-                    }
-                }
-                
-                
-                Section("时间设置") {
-                    VStack() {
-                        HStack(alignment: .top) {
-                            Text("时长模式")
-                                .foregroundStyle( !isCycleTimeMode ? Color.green : Color.secondary)
-                                .onTapGesture {
-                                    isCycleTimeMode = false
-                                    //使动画和下方的布局不在同一个周期
-                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
-                                        withAnimation(Animation.customSpring) {
-                                            isTimeOn = false
-                                        }
-                                    }))
-                                    
-                                }
-                            
-                            Toggle("", isOn: $isTimeOn)
-                                .frame(width: 160, height: 20)
-                                .toggleStyle(TimeToggleStyle(themeColor: Color.green))
-                                .frame(maxWidth: .infinity)
-                                .onChange(of: isTimeOn) { newValue in
-                                    isCycleTimeMode = isTimeOn
-                                }
-                            Text("周期模式")
-                                .foregroundStyle( isCycleTimeMode ? Color.green : Color.secondary)
-                                .onTapGesture {
-                                    isCycleTimeMode = true
-                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.02, execute: DispatchWorkItem(block: {
-                                        withAnimation(Animation.customSpring) {
-                                            isTimeOn = true
-                                        }
-                                    }))
-                                }
-                        }
-                        
-                        if isCycleTimeMode {
-                            addTimeCycleCell(timeCycle: "00:00-00:00", weekly: "", isOpen: true)
-                                .onTapGesture {
-                                    isPresent1.toggle()
-                                }
-                                .sheet(isPresented: $isPresent1) {
-                                    AddCycleTimePage(isOpen: $isTimeOn)
-                                }
-                            addTimeCycleCell(timeCycle: "9:00-10:00", weekly: "", isOpen: true)
-                            addTimeCycleCell(timeCycle: "19:00-21:00", weekly: "", isOpen: false)
-                            .buttonStyle(PlainButtonStyle())
-
-                            Button("添加定时") {
-                                
-                            }
-                            .buttonStyle(.plain)
-                            .padding(5)
-                            .foregroundStyle(Color.green)
-                        }else{
-                            Text("添加成功后可在主页面设置")
-                                .font(.title3)
-                                .foregroundStyle(Color.green.opacity(0.9))
-                                .padding()
-                        }
-                    }
-                }
-                
-                Section("动画设置") {
-                    HStack {
-                        RoundedRectangle(cornerRadius: 10.0)
-                            .fill(Color.green.opacity(0.3))
-                            .frame(height: 100)
-                            .onTapGesture {
-                                if selectIndex == 0 {
-                                    selectIndex = -1
-                                }else{
-                                    selectIndex = 0
-                                }
-                            }
-                            .overlay(
-                                //圆角
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(selectIndex == 0 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 0 ? 3 : 0)
-                            )
-                            
-                        RoundedRectangle(cornerRadius: 10.0)
-                            .fill(Color.green.opacity(0.3))
-                            .frame(height: 100)
-                            .onTapGesture {
-                                if selectIndex == 1 {
-                                    selectIndex = -1
-                                }else{
-                                    selectIndex = 1
-                                }
-                            }
-                            .overlay(
-                                //圆角
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(selectIndex == 1 ? Color.green.opacity(1) : Color.green.opacity(0.1), lineWidth: selectIndex == 1 ? 3 : 0)
-                            )
                     }
                 }
                 
