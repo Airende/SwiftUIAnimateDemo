@@ -9,8 +9,6 @@ import SwiftUI
 import MCEmojiPicker
 
 struct AddModeNamePage: View {
-    @Environment(\.dismiss) var dismiss
-
     private let characterLimit = 5
     let fillColors: [Color] = [.hei, .lan, .zi, .hong, .fen, .huang, .fenzi, .cheng, .lv, .qing]
     let emojiList: [String] = ["📚", "🎨", "🏀", "🚘", "🎮", "🐶", "👶🏻","🏃🏼", "🧘🏼", "🌏"]
@@ -103,6 +101,7 @@ struct AddModeNamePage: View {
                     Text("下一步")
                         .font(.system(size: 22))
                         .foregroundStyle(Color.white)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
@@ -110,19 +109,9 @@ struct AddModeNamePage: View {
                 .cornerRadius(12)
                 .padding(.horizontal, 40)
             }
+            .navigationTitle("")
             .animation(.easeIn(duration: 0.15), value: selectedColorIndex)
             .animation(.easeIn(duration: 0.15), value: selectedEmojiIndex)
-        }
-        .navigationBarBackButtonHidden()
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    self.dismiss()
-                }) {
-                    Image(systemName: "chevron.left") // 只显示返回箭头
-                }
-                .foregroundStyle(Color.primary)
-            }
         }
     }
 }

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct MySettingPage: View {
+    @Environment(\.presentationMode) var presentationMode // Environment value to dismiss the view
     var body: some View {
-        NavigationView {
-                List{
+        NavigationStack {
+            Form {
                     Section {
                         self.VIPInfoCell()
                     }
@@ -78,9 +79,9 @@ struct MySettingPage: View {
                 .listStyle(.automatic)
                 .navigationTitle("设置")
                 .scrollIndicators(.hidden)
+                .navigationBarTitleDisplayMode(.inline)
+
         }
-        .navigationViewStyle(StackNavigationViewStyle()) // 在 iPad 上全屏显示列表
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     func VIPInfoCell() -> some View {
@@ -94,28 +95,32 @@ struct MySettingPage: View {
                         .foregroundStyle(Color.white)
                         .fontWeight(.medium)
                 }
-                .border(Color.black, width: 1)
+//                .border(Color.black, width: 1)
                 .padding(.bottom, 1)
                 Text("获取更多个性化设置的权限")
-                    .border(Color.black, width: 1)
                     .foregroundStyle(Color.white.opacity(0.6))
             }
+            
             Spacer()
-            Button(action: {
-                
-            }, label: {
-                Text("立即开通")
-                    .foregroundStyle(Color.black)
-                    .font(.system(size: 14))
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(Color.white)
-                    .cornerRadius(10)
-            })
-            .border(Color.black, width: 1)
+            
+            NavigationLink {
+                BuyVIPPage()
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("立即开通")
+                        .foregroundStyle(Color.black)
+                        .font(.system(size: 14))
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(Color.white)
+                        .cornerRadius(5)
+                }
+            }
+            .frame(width: 110)
+            .padding(.trailing, -20)
         }
         .padding(.vertical, 10)
-        .padding(.horizontal, 5)
     }
     
     

@@ -14,60 +14,63 @@ struct BuyVIPPage: View {
     @State var selectIndex: Int = 1
     
     var body: some View {
-        ZStack {
-//            FlowingColorView()
-            ScrollView {
-                HStack {
-                    Text("✖️")
-                        .font(.system(size: 35))
-                        .padding(.leading, 20)
-                    Spacer()
-                    Text("兑换")
-                        .padding(.trailing, 20)
-                        .foregroundColor(.blue)
-                }
-                Text("🐰")
-                    .font(.system(size: 100))
-                Text("市值风云 🥕")
-                    .font(.system(size: 30))
-                Text("升级为pro解锁全部好用功能")
-                    .foregroundStyle(Color.gray)
-                HStack {
-                    self.skuCell(title: "月度会员", bottomText: "连续\n包月", curPrice: moonPrice, isSelect: selectIndex == 1)
-                        .onTapGesture {
-                            selectIndex = 1
-                        }
-                    self.skuCell(title: "年度会员", bottomText: "连续\n包年", curPrice: yearPrice, isSelect: selectIndex == 2)
-                        .onTapGesture {
-                            selectIndex = 2
-                        }
-                    self.skuCell(title: "永久会员", bottomText: "最大\n优惠", curPrice: foreverPrice, isSelect: selectIndex == 3)
-                        .onTapGesture {
-                            selectIndex = 3
-                        }
-                }
-                .padding(.all, 20)
-                
-                VStack {
-                    ForEach(0..<5) { index in
-                        self.infoCell()
+        NavigationStack {
+            ZStack {
+                ScrollView {
+                    Text("🐰")
+                        .font(.system(size: 100))
+                    Text("市值风云 🥕")
+                        .font(.system(size: 30))
+                    Text("升级为pro解锁全部好用功能")
+                        .foregroundStyle(Color.gray)
+                    HStack {
+                        self.skuCell(title: "月度会员", bottomText: "连续\n包月", curPrice: moonPrice, isSelect: selectIndex == 1)
+                            .onTapGesture {
+                                selectIndex = 1
+                            }
+                        self.skuCell(title: "年度会员", bottomText: "连续\n包年", curPrice: yearPrice, isSelect: selectIndex == 2)
+                            .onTapGesture {
+                                selectIndex = 2
+                            }
+                        self.skuCell(title: "永久会员", bottomText: "最大\n优惠", curPrice: foreverPrice, isSelect: selectIndex == 3)
+                            .onTapGesture {
+                                selectIndex = 3
+                            }
                     }
+                    .padding(.all, 20)
+                    
+                    VStack {
+                        ForEach(0..<5) { index in
+                            self.infoCell()
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+    //                .frame(height: 499)
+                    .background(Color.gray.opacity(0.05))
+                    .cornerRadius(20)
+                    .padding(20)
+                    
+                    Spacer()
+                        .padding(.bottom, 100)
                 }
-                .frame(maxWidth: .infinity)
-//                .frame(height: 499)
-                .background(Color.gray.opacity(0.05))
-                .cornerRadius(20)
-                .padding(20)
-                
-                Spacer()
-                    .padding(.bottom, 100)
+                VStack {
+                    Spacer()
+                    buyButton()
+                }
             }
-            VStack {
-                Spacer()
-                buyButton()
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        
+                    } label: {
+                        Text("兑换")
+                    }
+
+                }
             }
         }
-        
     }
     
     func skuCell(title: String, bottomText: String, curPrice: CGFloat, isSelect: Bool) -> some View{

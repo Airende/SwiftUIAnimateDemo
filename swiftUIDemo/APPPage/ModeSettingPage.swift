@@ -28,7 +28,7 @@ struct ModeSettingPage: View {
 
     
     var body: some View {
-        NavigationView(content: {
+        NavigationStack(root: {
             Form {
                 Section {
                     headerInfo()
@@ -53,6 +53,23 @@ struct ModeSettingPage: View {
                     }
                     .foregroundStyle(Color.black.opacity(0.85))
                     .font(.system(size: 16))
+                }
+                
+                Section("密码") {
+                    toggleSwitch(title:"使用密码", isOn: $usePassword)
+                    if usePassword {
+                        NavigationLink {
+                            if oldPassword.count > 0 {
+                                ResetPasswordPage(isChangePassword: true)
+                            } else {
+                                ResetPasswordPage()
+                            }
+                        } label: {
+                            if usePassword {
+                                Text(oldPassword.count > 0 ? "修改密码" : "密码设置")
+                            }
+                        }
+                    }
                 }
                 
                 
@@ -190,26 +207,6 @@ struct ModeSettingPage: View {
                                         
                                 }
                             }
-                            
-                            
-                            
-                        }
-                    }
-                }
-                
-                Section("密码") {
-                    toggleSwitch(title:"使用密码", isOn: $usePassword)
-                    if usePassword {
-                        NavigationLink {
-                            if oldPassword.count > 0 {
-                                ResetPasswordPage(isChangePassword: true)
-                            } else {
-                                ResetPasswordPage()
-                            }
-                        } label: {
-                            if usePassword {
-                                Text(oldPassword.count > 0 ? "修改密码" : "密码设置")
-                            }
                         }
                     }
                 }
@@ -226,8 +223,10 @@ struct ModeSettingPage: View {
             .sheet(isPresented: $isPresentEdit) {
                 AddModeNamePage()
             }
+            .navigationTitle("模式设置")
+            .navigationBarTitleDisplayMode(.inline)
+         
         })
-        
     }
     
     func headerInfo() -> some View {

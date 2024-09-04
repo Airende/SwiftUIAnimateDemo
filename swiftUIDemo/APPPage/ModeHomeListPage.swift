@@ -15,7 +15,7 @@ struct ModeHomeListPage: View {
     @State var editing: Bool = false
     
     var body: some View {
-        NavigationView(content: {
+        NavigationStack(root: {
             ZStack(){
                 TabView(selection: $currentPageIndex) {
                     ForEach(Array(texts.enumerated()), id: \.offset) { index, string  in
@@ -81,8 +81,10 @@ struct ModeHomeListPage: View {
                 }
             }
             .animation(.easeInOut, value: editing)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("")
         })
-        .navigationBarTitleDisplayMode(.inline)
+
     }
     
     func becomeEdit(_ isEdit: Bool){
@@ -119,32 +121,43 @@ struct ModeHomeListPage: View {
                     self.becomeEdit(false)
                 }, label: {
                     Image(systemName: "checkmark.circle.fill")
-                        .background(content: {
-                            Color.white.opacity(0.9)
-                        })
+                        .background(Color.white.opacity(0.85))
                         .font(.system(size: 30))
                         .cornerRadius(25)
                 })
+                .foregroundStyle(Color.black.opacity(0.85))
                 .frame(width: 45, height: 45)
                 
                 NavigationLink(destination: ModeSettingPage()) {
-                    Text("编辑")
-                        .frame(width: UIScreen.main.bounds.width/2, height: 50)
-                        .background {
-                            Color.yellow
-                        }
-                        .cornerRadius(25)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.black.opacity(0.3))
+                            .blur(radius: 5)
+                            .overlay(content: {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color.white.opacity(0.9), lineWidth: 2)
+                            })
+                            
+                            .frame(width: UIScreen.main.bounds.width/2, height: 50)
+//                            .foregroundStyle(Color.white.opacity(0.9))
+                        Text("编辑")
+                            .font(.system(size: 18))
+                            .fontWeight(.medium)
+                            .frame(width: UIScreen.main.bounds.width/2, height: 50)
+                            .background { Color.clear.opacity(0.2) }
+                            .foregroundStyle(Color.white.opacity(0.9))
+                            .cornerRadius(25)
+                    }
                 }
                 .padding()
 
                 NavigationLink(destination: AddModeNamePage()) {
                     Image(systemName: "plus.circle.fill")
-                        .background(content: {
-                            Color.white.opacity(0.9)
-                        })
+                        .background(Color.white.opacity(0.85))
                         .font(.system(size: 30))
                         .cornerRadius(25)
                 }
+                .foregroundStyle(Color.black.opacity(0.85))
                 .frame(width: 45, height: 45)
             })
             .padding(.bottom, 20)
