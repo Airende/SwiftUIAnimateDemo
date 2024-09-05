@@ -24,7 +24,7 @@ struct ModeSettingPage: View {
     @State private var isPresent1: Bool = false
 
 
-    var themeColor: Color = .green
+    var themeColor: Color = .heiD
 
     
     var body: some View {
@@ -47,11 +47,11 @@ struct ModeSettingPage: View {
                             Divider()
                         }
                         .listRowSeparator(.hidden)
-                        toggleSwitch(title: "限制安装", image: "plus.square.fill", isOn: $isDenyInstallOn)
-                        toggleSwitch(title: "限制删除", image: "minus.square.fill", isOn: $isDenyDeleteOn)
-                        toggleSwitch(title: "限制支付", image: "yensign.square.fill", isOn: $isDenyPayOn)
+                        ToggleSwitch(image: "plus.square.fill", title: "限制安装", isOn: $isDenyInstallOn, themeColor: themeColor)
+                        ToggleSwitch(image: "minus.square.fill", title: "限制删除", isOn: $isDenyDeleteOn, themeColor: themeColor)
+                        ToggleSwitch(image: "yensign.square.fill", title: "限制支付", isOn: $isDenyPayOn, themeColor: themeColor)
                     }
-                    .foregroundStyle(Color.black.opacity(0.85))
+                    .foregroundStyle(Color.heiD)
                     .font(.system(size: 16))
                 }
                 
@@ -71,6 +71,7 @@ struct ModeSettingPage: View {
                         }
                     }
                 }
+                
                 
                 
                 Section("时间设置") {
@@ -147,7 +148,6 @@ struct ModeSettingPage: View {
                                 Divider()
                                 HStack {
                                     Label("时长", systemImage:"timer.circle.fill")
-                                        .foregroundStyle(Color.black.opacity(0.85))
                                     Spacer()
                                     Text("稍后主页面设置")
                                         .foregroundStyle(Color.secondary)
@@ -157,7 +157,6 @@ struct ModeSettingPage: View {
                                 Divider()
                                 HStack {
                                     Label("启用动画", systemImage:"fireworks")
-                                        .foregroundStyle(Color.black.opacity(0.85))
                                     Spacer()
                                 }
                                 
@@ -219,6 +218,7 @@ struct ModeSettingPage: View {
                     .frame(maxWidth: .infinity)
                 }
             }
+            .foregroundColor(themeColor)
             .animation(.easeInOut, value: usePassword)
             .sheet(isPresented: $isPresentEdit) {
                 AddModeNamePage()
@@ -241,7 +241,7 @@ struct ModeSettingPage: View {
                     Text("市值风云")
                         .font(.system(size: 28))
                         .fontWeight(.medium)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(themeColor)
                 }
             })
 
@@ -274,7 +274,7 @@ struct ModeSettingPage: View {
             
             if apps.count < 1 {
                 Text("暂无选择")
-                    .foregroundStyle(Color.black.opacity(0.2))
+                    .foregroundStyle(themeColor.opacity(0.2))
                     .font(.title2)
                     .frame(height: 45)
             }else{

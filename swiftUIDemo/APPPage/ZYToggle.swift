@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+
+struct ToggleSwitch: View {
+    var image: String? = nil
+    var title: String = ""
+    @Binding var isOn: Bool
+    var themeColor: Color = .heiD
+    
+    var body: some View {
+        HStack {
+           if image != nil {
+               Label(title, systemImage:image ?? "")
+           }else {
+               Text(title)
+           }
+           Spacer()
+           ZYToggle(isOn: $isOn, onColor: themeColor)
+               .frame(width: 48, height: 28)
+       }
+    }
+}
+
+
 struct ZYToggle: View {
     @Binding var isOn: Bool
     var onColor: Color = .green

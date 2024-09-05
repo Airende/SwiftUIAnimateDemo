@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct MySettingPage: View {
-    @Environment(\.presentationMode) var presentationMode // Environment value to dismiss the view
+    @State private var faceIdOpen: Bool = false
+    
     var body: some View {
         NavigationStack {
             Form {
                     Section {
                         self.VIPInfoCell()
                     }
-                    .listRowBackground(Color.black.opacity(0.85))
                     
                     Section {
-                        Toggle(isOn: .constant(true), label: {
-                            Label("人脸识别", systemImage: "faceid")
-                                .font(.callout)
-                        })
-                        Toggle(isOn: .constant(true)) {
-                            Label("应用上锁", systemImage:"key.viewfinder")
-                        }
+                        ToggleSwitch(image: "faceid", title: "人脸识别", isOn: $faceIdOpen)
+                        ToggleSwitch(image: "key.viewfinder", title: "应用上锁", isOn: $faceIdOpen)
                         
                         Button {
                             
@@ -75,13 +70,13 @@ struct MySettingPage: View {
                     }
 
                 }
-                .foregroundStyle(Color.black.opacity(0.85))
                 .listStyle(.automatic)
                 .navigationTitle("设置")
                 .scrollIndicators(.hidden)
                 .navigationBarTitleDisplayMode(.inline)
 
         }
+        .foregroundStyle(Color.heiD)
     }
     
     func VIPInfoCell() -> some View {
@@ -95,7 +90,6 @@ struct MySettingPage: View {
                         .foregroundStyle(Color.white)
                         .fontWeight(.medium)
                 }
-//                .border(Color.black, width: 1)
                 .padding(.bottom, 1)
                 Text("获取更多个性化设置的权限")
                     .foregroundStyle(Color.white.opacity(0.6))

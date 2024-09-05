@@ -79,24 +79,24 @@ struct BuyVIPPage: View {
                 .padding(.vertical, 15)
                 .font(.system(size: 14))
                 .fontWeight(.regular)
-                .foregroundStyle(isSelect ? Color.blue : Color.primary.opacity(0.7))
+                .foregroundStyle(isSelect ? Color.heiD : Color.primary.opacity(0.6))
             Text("\(String(format: "¥%.2f", curPrice))")
                 .font(.title2)
                 .fontWeight(isSelect ? .semibold : .regular)
-                .foregroundStyle(isSelect ? Color.blue : Color.primary.opacity(0.7))
+                .foregroundStyle(isSelect ? Color.heiD : Color.primary.opacity(0.6))
             Text(bottomText)
                 .padding(.top, 15)
                 .padding(.bottom, 15)
                 .font(.callout)
                 .fontWeight(.regular)
-                .foregroundStyle(isSelect ? Color.blue : Color.primary.opacity(0.7))
+                .foregroundStyle(isSelect ? Color.heiD : Color.primary.opacity(0.6))
 
         }
         .frame(maxWidth: .infinity)
         .overlay(
             //圆角
             RoundedRectangle(cornerRadius: 10)
-                .stroke(isSelect ? Color.blue.opacity(1) : Color.gray.opacity(0.1), lineWidth: isSelect ? 5 : 0)
+                .stroke(isSelect ? Color.heiD.opacity(1) : Color.heiD.opacity(0.1), lineWidth: isSelect ? 5 : 0)
         )
         .background( isSelect ? Color.blue.opacity(0.05) : Color.gray.opacity(0.05))
         .cornerRadius(10.0)
@@ -139,7 +139,7 @@ struct BuyVIPPage: View {
                 .padding(.vertical, 10)
 //                .background(Color.yellow)
                 .foregroundStyle(
-                    Color.gray.opacity(0.8)
+                    Color.heiD.opacity(0.8)
                 )
             Button(action: {
                 
@@ -147,16 +147,16 @@ struct BuyVIPPage: View {
             }, label: {
                 Text("立即购买")
                     .padding()
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.baiD)
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
+                    .background(Color.heiD)
             })
             .frame(maxWidth: .infinity)
             .cornerRadius(10.0)
             .padding(.horizontal, 20)
             .padding(.vertical, 0)
         }
-        .background( Color.white )
+        .background( Color.init(uiColor: UIColor.systemBackground))
     }
 }
 

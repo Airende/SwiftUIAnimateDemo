@@ -10,7 +10,7 @@ import MCEmojiPicker
 
 struct AddModeNamePage: View {
     private let characterLimit = 5
-    let fillColors: [Color] = [.hei, .lan, .zi, .hong, .fen, .huang, .fenzi, .cheng, .lv, .qing]
+    let fillColors: [Color] = [.heiD, .lanD, .ziD, .hongD, .fenD, .huangD, .fenziD, .chengD, .lvD, .qingD]
     let emojiList: [String] = ["📚", "🎨", "🏀", "🚘", "🎮", "🐶", "👶🏻","🏃🏼", "🧘🏼", "🌏"]
     let columns = [
         GridItem(.flexible()),
