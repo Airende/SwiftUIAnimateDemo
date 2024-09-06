@@ -14,8 +14,11 @@ struct MySettingPage: View {
         NavigationStack {
             Form {
                     Section {
+                        
                         self.VIPInfoCell()
                     }
+                
+            
                     
                     Section {
                         ToggleSwitch(image: "faceid", title: "人脸识别", isOn: $faceIdOpen)
@@ -107,12 +110,13 @@ struct MySettingPage: View {
                         .font(.system(size: 14))
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
-                        .background(Color.white)
+                        .background(Color.blue)
                         .cornerRadius(5)
                 }
             }
             .frame(width: 110)
-            .padding(.trailing, -20)
+            .padding(.trailing, -15)
+            .offset(x: 10)
         }
         .padding(.vertical, 10)
     }

@@ -10,6 +10,7 @@ import ColorfulX
 import AxisSheet
 
 struct TimeModeMainPage: View {
+    @State private var isBig: Bool = false
     @Binding var isEditing: Bool
     @State var isOpen = true
     @State var isStart = false
@@ -29,7 +30,7 @@ struct TimeModeMainPage: View {
             VStack(spacing: 10) {
                 ZStack {
                     Text("📚")
-                        .font(.system(size: isEditing ? 200 : 150, weight: .regular))
+                        .font(.system(size: isBig ? 200 : 150, weight: .medium))
                         .padding(0)
                         .offset(y: isEditing ? (isOpen ? 150 : 50) : 0)
                     Text("专注模式")
@@ -39,7 +40,9 @@ struct TimeModeMainPage: View {
                         .opacity(isEditing ? 1 : 0)
                         .offset(y:isEditing ? (isOpen ? 280 : 180) : 100)
                 }
-                    
+                .onChange(of: isEditing) { newValue in
+                    isBig = isEditing
+                }
                 Group {
                     HStack {
                         Text(timeUseType==1 ? "专注时长：\(Int(timeLong))分钟" : "专注到：\(Date.formatDateToShanghai(timeDate, dateFormat: "HH:mm"))")
@@ -112,7 +115,8 @@ struct TimeModeMainPage: View {
             }
             .ignoresSafeArea()
             .animation(.easeInOut, value: isOpen)
-            .animation(.easeInOut, value: isEditing)
+            .animation(.easeInOut(duration: 1).delay(0.25), value: isEditing)
+            .animation(.easeInOut(duration: 1).delay(0.25), value: isBig)
             .offset(y: -50)
             
             Waves()

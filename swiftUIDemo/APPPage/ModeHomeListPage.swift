@@ -21,6 +21,7 @@ struct ModeHomeListPage: View {
                     ForEach(Array(texts.enumerated()), id: \.offset) { index, string  in
                         TimeModeMainPage(isEditing: $editing)
                             .background( editing ? Color.clear : Color.white)
+                            .padding(paddingInsets)
                             .tag(index)
                             .tabItem {
                                 Image(systemName: "leaf")
@@ -28,7 +29,6 @@ struct ModeHomeListPage: View {
                     }
                 }
                 .padding(.top, editing ? 0 : -20)
-                .padding(paddingInsets)
                 .frame(height: UIScreen.main.bounds.height)
                 .cornerRadius(36)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .interactive))
@@ -39,7 +39,6 @@ struct ModeHomeListPage: View {
                     self.becomeEdit(true)
                 })
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: editing ? .automatic : .never))
-//                .ignoresSafeArea()
                 .overlay(content: {
                     VStack {
                         HStack {
@@ -80,7 +79,7 @@ struct ModeHomeListPage: View {
                     FlowingColorView(clear: true, colors: ColorfulExtentsion.blackBlue.colors)
                 }
             }
-            .animation(.easeInOut, value: editing)
+            .animation(.easeInOut(duration: 1), value: editing)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("")
         })
